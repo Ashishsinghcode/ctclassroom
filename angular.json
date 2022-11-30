@@ -28,7 +28,8 @@
             ],
             "styles": [
               "src/styles.css",
-              "src/assets/css/style-starter.css"
+              "src/assets/css/style-starter.css",
+              "src/assets/css/loginstyle.css"
             ],
             "scripts": [
               "src/assets/js/bootstrap.min.js",
@@ -101,7 +102,9 @@
             ],
             "styles": [
               "src/styles.css",
-              "src/assets/css/style-starter.css"
+              "src/assets/css/style-starter.css",
+              "src/assets/css/loginstyle.css"
+             
             ],
             "scripts": [
               "src/assets/js/bootstrap.min.js",
