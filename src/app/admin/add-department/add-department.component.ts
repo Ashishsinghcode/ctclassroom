@@ -6,6 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-department.component.css']
 })
 export class AddDepartmentComponent implements OnInit {
+  addDepartment={
+    depid:'',
+    depname:''
+  }
 
   constructor() { }
 

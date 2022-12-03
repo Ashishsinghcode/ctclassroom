@@ -6,6 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-student.component.css']
 })
 export class AddStudentComponent implements OnInit {
+  addStudent={
+    rollno:'',
+    stuname:'',
+    department:'',
+    course:'',
+    class:'',
+    stuemail:'',
+    stupassword:'',
+    stucontact:''
+  }
 
   constructor() { }
 

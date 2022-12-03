@@ -6,6 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-notice.component.css']
 })
 export class AddNoticeComponent implements OnInit {
+  addNotice={
+    addtitle:'',
+    adddescription:'',
+    addfile:''
+  }
 
   constructor() { }
 

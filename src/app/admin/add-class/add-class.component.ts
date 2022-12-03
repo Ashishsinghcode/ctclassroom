@@ -6,6 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-class.component.css']
 })
 export class AddClassComponent implements OnInit {
+  addClass={
+    classid:'',
+    classname:''
+  }
 
   constructor() { }
 

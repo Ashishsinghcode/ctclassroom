@@ -6,6 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-subject.component.css']
 })
 export class AddSubjectComponent implements OnInit {
+  addSubject={
+    subid:'',
+    subname:'',
+    couid:'',
+    classid:'',
+    depid:'',
+    teachid:''
+  }
 
   constructor() { }
 
