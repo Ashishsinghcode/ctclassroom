@@ -8,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 export class AddCourseComponent implements OnInit {
   addCourse={
     couid:'',
-    couname:''
+    couname:'',
+    department:''
   }
 
+  departments = [
+    {
+      'id':1,
+      'name':'CSE'
+    },
+    {
+      'id':2,
+      'name':'ECE'
+    },
+  ]
   constructor() { }
 
   ngOnInit(): void {

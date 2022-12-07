@@ -23,6 +23,7 @@ import { AddSubjectComponent } from './admin/add-subject/add-subject.component';
 import { AddStudentComponent } from './admin/add-student/add-student.component';
 import { AddNoticeComponent } from './admin/add-notice/add-notice.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgSelectModule
     
   ],
   providers: [],
