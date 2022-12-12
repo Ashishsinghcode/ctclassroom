@@ -24,6 +24,22 @@ import { AddStudentComponent } from './admin/add-student/add-student.component';
 import { AddNoticeComponent } from './admin/add-notice/add-notice.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { TeacherComponent } from './teacher/teacher.component';
+import { AddNotesComponent } from './teacher/add-notes/add-notes.component';
+import { AddAssignmentsComponent } from './teacher/add-assignments/add-assignments.component';
+import { AddVideosComponent } from './teacher/add-videos/add-videos.component';
+import { AddTestsComponent } from './teacher/add-tests/add-tests.component';
+import { AddClassesComponent } from './teacher/add-classes/add-classes.component';
+import { AttendenceComponent } from './teacher/attendence/attendence.component';
+import { MNotesComponent } from './teacher/m-notes/m-notes.component';
+import { MAssignmentsComponent } from './teacher/m-assignments/m-assignments.component';
+import { MVideosComponent } from './teacher/m-videos/m-videos.component';
+import { MTestsComponent } from './teacher/m-tests/m-tests.component';
+import { MClassesComponent } from './teacher/m-classes/m-classes.component';
+import { VAttendenceComponent } from './teacher/v-attendence/v-attendence.component';
+import { TeacherHeaderComponent } from './teacher/teacher-header/teacher-header.component';
+import { TeacherFooterComponent } from './teacher/teacher-footer/teacher-footer.component';
+import { TeacherDashboardComponent } from './teacher/teacher-dashboard/teacher-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +64,22 @@ import { NgSelectModule } from '@ng-select/ng-select';
     AddSubjectComponent,
     AddStudentComponent,
     AddNoticeComponent,
+    TeacherComponent,
+    AddNotesComponent,
+    AddAssignmentsComponent,
+    AddVideosComponent,
+    AddTestsComponent,
+    AddClassesComponent,
+    AttendenceComponent,
+    MNotesComponent,
+    MAssignmentsComponent,
+    MVideosComponent,
+    MTestsComponent,
+    MClassesComponent,
+    VAttendenceComponent,
+    TeacherHeaderComponent,
+    TeacherFooterComponent,
+    TeacherDashboardComponent,
    
   
   ],

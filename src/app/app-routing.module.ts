@@ -16,6 +16,20 @@ import { LayoutComponent } from './layout/layout.component';
 import { AdminloginComponent } from './login/adminlogin/adminlogin.component';
 import { StudentloginComponent } from './login/studentlogin/studentlogin.component';
 import { TeacherloginComponent } from './login/teacherlogin/teacherlogin.component';
+import { AddAssignmentsComponent } from './teacher/add-assignments/add-assignments.component';
+import { AddClassesComponent } from './teacher/add-classes/add-classes.component';
+import { AddNotesComponent } from './teacher/add-notes/add-notes.component';
+import { AddTestsComponent } from './teacher/add-tests/add-tests.component';
+import { AddVideosComponent } from './teacher/add-videos/add-videos.component';
+import { AttendenceComponent } from './teacher/attendence/attendence.component';
+import { MAssignmentsComponent } from './teacher/m-assignments/m-assignments.component';
+import { MClassesComponent } from './teacher/m-classes/m-classes.component';
+import { MNotesComponent } from './teacher/m-notes/m-notes.component';
+import { MTestsComponent } from './teacher/m-tests/m-tests.component';
+import { MVideosComponent } from './teacher/m-videos/m-videos.component';
+import { TeacherDashboardComponent } from './teacher/teacher-dashboard/teacher-dashboard.component';
+import { TeacherComponent } from './teacher/teacher.component';
+import { VAttendenceComponent } from './teacher/v-attendence/v-attendence.component';
 
 const routes: Routes = [
   {
@@ -61,6 +75,50 @@ const routes: Routes = [
       },
       {
         path:'add_notice',component:AddNoticeComponent
+      },
+    ]
+  },
+  {
+    path:'teacher',component:TeacherComponent,
+    children:[
+      {
+        path:'teacher_dashboard',component:TeacherDashboardComponent
+      },
+      {
+        path:'add_assignments',component:AddAssignmentsComponent
+      },
+      {
+        path:'add_class',component:AddClassesComponent
+      },
+      {
+        path:'add_notes',component:AddNotesComponent
+      },
+      {
+        path:'add_tests',component:AddTestsComponent
+      },
+      {
+        path:'add_videos',component:AddVideosComponent
+      },
+      {
+        path:'attendence',component:AttendenceComponent
+      },
+      {
+        path:'m_assignments',component:MAssignmentsComponent
+      },
+      {
+        path:'m_class',component:MClassesComponent
+      },
+      {
+        path:'m_notes',component:MNotesComponent
+      },
+      {
+        path:'m_tests',component:MTestsComponent
+      },
+      {
+        path:'m_videos',component:MVideosComponent
+      },
+      {
+        path:'v_attendence',component:VAttendenceComponent
       },
     ]
   },
