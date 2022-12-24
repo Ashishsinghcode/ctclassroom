@@ -6,7 +6,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-tests.component.css']
 })
 export class AddTestsComponent implements OnInit {
-
+  addTest={
+    addclassname:'',
+    addtitle:'',
+    addlink:'',
+    adddate:'',
+    addfromtime:'',
+    addtotime:''
+  }
+  courses = [
+    {
+      'id':1,
+      'name':'BCA'
+    },
+    {
+      'id':2,
+      'name':'MCA'
+    },
+  ]
   constructor() { }
 
   ngOnInit(): void {

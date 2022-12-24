@@ -6,7 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-notes.component.css']
 })
 export class AddNotesComponent implements OnInit {
-
+  addNotes={
+    addtitle:'',
+    adddescription:'',
+    addfile:''
+  }
   constructor() { }
 
   ngOnInit(): void {

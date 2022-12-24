@@ -6,7 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-assignments.component.css']
 })
 export class AddAssignmentsComponent implements OnInit {
-
+  addAssignment={
+    addtitle:'',
+    adddescription:'',
+    addfile:''
+  }
   constructor() { }
 
   ngOnInit(): void {
