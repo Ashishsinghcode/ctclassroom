@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddClassesComponent implements OnInit {
   addClass={
+    classname:'',
     addclassname:'',
     addtitle:'',
     addlink:'',

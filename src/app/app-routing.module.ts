@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddClassComponent } from './admin/add-class/add-class.component';
 import { AddCourseComponent } from './admin/add-course/add-course.component';
@@ -16,6 +16,15 @@ import { LayoutComponent } from './layout/layout.component';
 import { AdminloginComponent } from './login/adminlogin/adminlogin.component';
 import { StudentloginComponent } from './login/studentlogin/studentlogin.component';
 import { TeacherloginComponent } from './login/teacherlogin/teacherlogin.component';
+import { StudentDashboardComponent } from './student/student-dashboard/student-dashboard.component';
+import { StudentComponent } from './student/student.component';
+import { UploadAssignmentComponent } from './student/upload-assignment/upload-assignment.component';
+import { UploadTestComponent } from './student/upload-test/upload-test.component';
+import { VAssignmentComponent } from './student/v-assignment/v-assignment.component';
+import { VLectureComponent } from './student/v-lecture/v-lecture.component';
+import { VNotesComponent } from './student/v-notes/v-notes.component';
+import { VTestComponent } from './student/v-test/v-test.component';
+import { VVideoComponent } from './student/v-video/v-video.component';
 import { AddAssignmentsComponent } from './teacher/add-assignments/add-assignments.component';
 import { AddClassesComponent } from './teacher/add-classes/add-classes.component';
 import { AddNotesComponent } from './teacher/add-notes/add-notes.component';
@@ -119,6 +128,35 @@ const routes: Routes = [
       },
       {
         path:'v_attendence',component:VAttendenceComponent
+      },
+    ]
+  },
+  {
+    path:'student',component:StudentComponent,
+    children:[
+      {
+        path:'student_dashboard',component:StudentDashboardComponent
+      },
+      {
+        path:'v_notes',component:VNotesComponent
+      },
+      {
+        path:'v_test',component:VTestComponent
+      },
+      {
+        path:'v_assignment',component:VAssignmentComponent
+      },
+      {
+        path:'v_lecture',component:VLectureComponent
+      },
+      {
+        path:'v_video',component:VVideoComponent
+      },
+      {
+        path:'upload_assignment',component:UploadAssignmentComponent
+      },
+      {
+        path:'upload_test',component:UploadTestComponent
       },
     ]
   },

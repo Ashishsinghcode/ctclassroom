@@ -7,12 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddAssignmentsComponent implements OnInit {
   addAssignment={
+    classname:'',
     addtitle:'',
     adddescription:'',
     addfile:''
   }
   constructor() { }
-
+  courses = [
+    {
+      'id':1,
+      'name':'BCA'
+    },
+    {
+      'id':2,
+      'name':'MCA'
+    },
+  ]
   ngOnInit(): void {
   }
 

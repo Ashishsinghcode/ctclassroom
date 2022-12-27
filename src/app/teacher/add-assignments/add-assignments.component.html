@@ -5,7 +5,13 @@
             <form (ngform)="addAssignment" autocomplete="off">
                 <div class="row align-items-center pt-sm-5 pt-4">
                     <div class="col-md-5">
-                        <input class="form-control border-warning" type="text" placeholder="Assignment Title" #addtitle name="addtitle" [(ngModel)]="addAssignment.addtitle" required>
+                       
+                        <label class="mt-3"><b>Class Name</b></label>
+                        <ng-select class="form-control-default border border-warning rounded" placeholder=""  #cou_name name="cou_name" [(ngModel)]="addAssignment.classname">
+                            <ng-option *ngFor="let course of courses" [value]="course.id">{{course.name}}</ng-option>
+                         </ng-select>
+
+                        <input class="form-control border-warning mt-3" type="text" placeholder="Assignment Title" #addtitle name="addtitle" [(ngModel)]="addAssignment.addtitle" required>
                         <textarea class="mt-3 form-control bigbox"  placeholder="Assignment description" #adddescription name="adddescription" [(ngModel)]="addAssignment.adddescription" required></textarea>
                         <input class="form-control mt-2 border-warning" type="file" placeholder="Course Name" #addfile name="addfile" [(ngModel)]="addAssignment.addfile" required>
                         

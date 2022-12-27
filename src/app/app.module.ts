@@ -40,6 +40,17 @@ import { VAttendenceComponent } from './teacher/v-attendence/v-attendence.compon
 import { TeacherHeaderComponent } from './teacher/teacher-header/teacher-header.component';
 import { TeacherFooterComponent } from './teacher/teacher-footer/teacher-footer.component';
 import { TeacherDashboardComponent } from './teacher/teacher-dashboard/teacher-dashboard.component';
+import { StudentComponent } from './student/student.component';
+import { VNotesComponent } from './student/v-notes/v-notes.component';
+import { VAssignmentComponent } from './student/v-assignment/v-assignment.component';
+import { VLectureComponent } from './student/v-lecture/v-lecture.component';
+import { VTestComponent } from './student/v-test/v-test.component';
+import { VVideoComponent } from './student/v-video/v-video.component';
+import { UploadAssignmentComponent } from './student/upload-assignment/upload-assignment.component';
+import { UploadTestComponent } from './student/upload-test/upload-test.component';
+import { StudentHeaderComponent } from './student/student-header/student-header.component';
+import { StudentFooterComponent } from './student/student-footer/student-footer.component';
+import { StudentDashboardComponent } from './student/student-dashboard/student-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -80,6 +91,17 @@ import { TeacherDashboardComponent } from './teacher/teacher-dashboard/teacher-d
     TeacherHeaderComponent,
     TeacherFooterComponent,
     TeacherDashboardComponent,
+    StudentComponent,
+    VNotesComponent,
+    VAssignmentComponent,
+    VLectureComponent,
+    VTestComponent,
+    VVideoComponent,
+    UploadAssignmentComponent,
+    UploadTestComponent,
+    StudentHeaderComponent,
+    StudentFooterComponent,
+    StudentDashboardComponent,
    
   
   ],

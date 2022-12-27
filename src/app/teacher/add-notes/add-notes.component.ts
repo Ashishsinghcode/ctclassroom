@@ -7,12 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddNotesComponent implements OnInit {
   addNotes={
+    classname:'',
     addtitle:'',
     adddescription:'',
     addfile:''
   }
   constructor() { }
-
+  courses = [
+    {
+      'id':1,
+      'name':'BCA'
+    },
+    {
+      'id':2,
+      'name':'MCA'
+    },
+  ]
   ngOnInit(): void {
   }
 
