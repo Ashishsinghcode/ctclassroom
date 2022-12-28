@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ToastrService } from 'ngx-toastr';
+import { NgxSpinnerService } from "ngx-spinner";
 @Component({
   selector: 'app-adminlogin',
   templateUrl: './adminlogin.component.html',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminloginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private toastr : ToastrService, private spinner : NgxSpinnerService) { }
 
   ngOnInit(): void {
+    this.spinner.show()
+    this.toastr.success('Login successfully','success')
   }
 
 }

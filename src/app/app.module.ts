@@ -51,7 +51,10 @@ import { UploadTestComponent } from './student/upload-test/upload-test.component
 import { StudentHeaderComponent } from './student/student-header/student-header.component';
 import { StudentFooterComponent } from './student/student-footer/student-footer.component';
 import { StudentDashboardComponent } from './student/student-dashboard/student-dashboard.component';
-
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { NgxSpinnerModule } from 'ngx-spinner';
 @NgModule({
   declarations: [
     AppComponent,
@@ -110,7 +113,11 @@ import { StudentDashboardComponent } from './student/student-dashboard/student-d
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    NgSelectModule
+    NgSelectModule,
+    CommonModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule,
+    NgxSpinnerModule.forRoot()
     
   ],
   providers: [],

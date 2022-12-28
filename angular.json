@@ -29,7 +29,9 @@
             "styles": [
               "src/styles.css",
               "src/assets/css/style-starter.css",
-              "src/assets/css/loginstyle.css"
+              "src/assets/css/loginstyle.css",
+              "node_modules/ngx-toastr/toastr.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "scripts": [
               "src/assets/js/bootstrap.min.js",
@@ -103,7 +105,9 @@
             "styles": [
               "src/styles.css",
               "src/assets/css/style-starter.css",
-              "src/assets/css/loginstyle.css"
+              "src/assets/css/loginstyle.css",
+              "node_modules/ngx-toastr/toastr.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
              
             ],
             "scripts": [
