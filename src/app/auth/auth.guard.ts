@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router} from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../shared/auth/auth.service';
 
 @Injectable({
@@ -7,14 +8,18 @@ import { AuthService } from '../shared/auth/auth.service';
 })
 
 export class AuthGuard implements CanActivate {
-    constructor(private authservice :AuthService,private route : Router){}
+    constructor(private authservice :AuthService,private route : Router,private toastr : ToastrService){}
     canActivate() : boolean{
         if(this.authservice.getToken() != null)
         {
+            
+            console.log(this.authservice.getService())
+            this.toastr.success('auth guard','working')
             return true
         }
         else{
-            this.route.navigateByUrl('/login')
+            this.route.navigateByUrl('/adminlogin')
+            this.toastr.warning('Invalid User','Please Login')
             return false
         }
     }

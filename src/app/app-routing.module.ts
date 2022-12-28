@@ -39,7 +39,7 @@ import { MVideosComponent } from './teacher/m-videos/m-videos.component';
 import { TeacherDashboardComponent } from './teacher/teacher-dashboard/teacher-dashboard.component';
 import { TeacherComponent } from './teacher/teacher.component';
 import { VAttendenceComponent } from './teacher/v-attendence/v-attendence.component';
-
+import { AuthGuard } from './auth/auth.guard';
 const routes: Routes = [
   {
     path:'',redirectTo:'layout/dashboard',pathMatch:"full"

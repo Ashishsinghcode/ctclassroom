@@ -14,6 +14,7 @@ export class AuthService {
 
   getService(){
     return localStorage.getItem("email")
+    
   }
   getToken(){
     return localStorage.getItem("token")
