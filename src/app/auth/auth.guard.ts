@@ -12,9 +12,6 @@ export class AuthGuard implements CanActivate {
     canActivate() : boolean{
         if(this.authservice.getToken() != null)
         {
-            
-            console.log(this.authservice.getService())
-            this.toastr.success('auth guard','working')
             return true
         }
         else{

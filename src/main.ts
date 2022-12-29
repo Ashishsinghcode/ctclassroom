@@ -8,5 +8,15 @@ if (environment.production) {
   enableProdMode();
 }
 
-platformBrowserDynamic().bootstrapModule(AppModule)
+export function baseurl(){
+  return "http://localhost:3000/ct/";
+}
+
+const provider = [
+  {
+    provide:'baseurl',useFactory:baseurl,deps:[]
+  }
+]
+
+platformBrowserDynamic(provider).bootstrapModule(AppModule)
   .catch(err => console.error(err));

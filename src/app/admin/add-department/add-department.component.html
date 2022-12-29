@@ -2,19 +2,21 @@
 <section id="home" class="w3l-banner ">
     <div class="banner-content">
         <div class="container py-4">
-            <form (ngform)="addDepartment" autocomplete="off">
+            <form (ngform)="addDepartment" method="post" autocomplete="off">
                 <div class="row align-items-center pt-sm-5 pt-4">
                     <div class="col-md-5">
                         <div class="col-md-4"></div>
+                       
                         <label class=""><b>Department Id</b></label>
-                        <input class="form-control border-warning opacity" type="text" placeholder="Department Id" #depid name="depid" [(ngModel)]="addDepartment.depid" required>
+                        <input class="form-control border-warning opacity" type="text" placeholder="Department Id" #depid name="depid" [(ngModel)]="addDepartment.department_id" required>
+                        
                         <label class="mt-3"><b>Department Name</b></label>
-                        <input class="form-control  border-warning" type="text" placeholder="Department Name" #depname name="depname" [(ngModel)]="addDepartment.depname" required>
+                        <input class="form-control  border-warning" type="text" placeholder="Department Name" #depname name="depname" [(ngModel)]="addDepartment.department_name" required>
                         
                         
                         <div class="row mt-3">
                             <div class="col-md-6">
-                                <button class="form-control bg-warning text-light"><strong>Add</strong></button>
+                                <button type="submit" class="form-control bg-warning text-light" (click)="add_department()"><strong>Add</strong></button>
                             </div>
                             <div class="col-md-6">
                                 <button class="form-control bg-primary text-light"><strong><i class="fa fa-edit"></i>Edit</strong></button>

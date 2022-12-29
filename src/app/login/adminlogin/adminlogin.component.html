@@ -1,5 +1,4 @@
 <!-- /login-section -->
-
 <section class="w3l-forms-23">
     <div class="forms23-block-hny">
         <div class="wrapper">
@@ -18,12 +17,12 @@
                         </div>
                     </div>
                     <div class="bottom-content">
-                        <form action="#" method="post">
+                        <form action="#" (ngform)="loginForm" method="post">
                             <input type="email" name="email" class="input-form" placeholder="Your Email"
-                                    required="required" />
+                                    required="required" [(ngModel)]="loginForm.email"  />
                             <input type="password" name="password" class="input-form"
-                                    placeholder="Your Password" required="required" />
-                            <button type="submit" class="loginhny-btn btn" routerLink="/admin/admin_dashboard">Login</button>
+                                    placeholder="Your Password" required="required" [(ngModel)]="loginForm.password" />
+                            <button type="submit" class="loginhny-btn btn" (click)="login()" >Login</button>
                            <span>Don't want to Login go to </span> <a routerLink="/layout/dashboard">Homepage</a>
                         </form>
                         

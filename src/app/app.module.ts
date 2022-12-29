@@ -55,6 +55,16 @@ import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { HttpClientModule } from '@angular/common/http';
+import { MClassComponent } from './admin/m-class/m-class.component';
+import { MCourseComponent } from './admin/m-course/m-course.component';
+import { MDepartmentComponent } from './admin/m-department/m-department.component';
+import { MNoticeComponent } from './admin/m-notice/m-notice.component';
+import { MStudentComponent } from './admin/m-student/m-student.component';
+import { EStudentComponent } from './admin/e-student/e-student.component';
+import { ETeacherComponent } from './admin/e-teacher/e-teacher.component';
+import { MSubjectComponent } from './admin/m-subject/m-subject.component';
+import { MTeacherComponent } from './admin/m-teacher/m-teacher.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -105,6 +115,15 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     StudentHeaderComponent,
     StudentFooterComponent,
     StudentDashboardComponent,
+    MClassComponent,
+    MCourseComponent,
+    MDepartmentComponent,
+    MNoticeComponent,
+    MStudentComponent,
+    EStudentComponent,
+    ETeacherComponent,
+    MSubjectComponent,
+    MTeacherComponent,
    
   
   ],
@@ -117,7 +136,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     CommonModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
-    NgxSpinnerModule.forRoot()
+    NgxSpinnerModule.forRoot(),
+    HttpClientModule
     
   ],
   providers: [],
