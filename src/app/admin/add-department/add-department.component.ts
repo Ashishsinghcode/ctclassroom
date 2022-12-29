@@ -26,7 +26,7 @@ add_department(){
       this.spinner.hide()
       if(res.success == true){
         this.toastr.success('Success',res.msg)
-        this.router.navigateByUrl('/admin/add_department')
+        
       }else{
         this.toastr.error('Failed',res.msg)
       }

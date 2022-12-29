@@ -7,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddClassComponent implements OnInit {
   addClass={
-    classid:'',
-    classname:'',
-    cou_name:'',
-    dep_name:''
+    class_id:'',
+    class_name:'',
+    course_id:'',
+    department_id:''
   }
   departments = [
     {

@@ -40,6 +40,14 @@ import { TeacherDashboardComponent } from './teacher/teacher-dashboard/teacher-d
 import { TeacherComponent } from './teacher/teacher.component';
 import { VAttendenceComponent } from './teacher/v-attendence/v-attendence.component';
 import { AuthGuard } from './auth/auth.guard';
+import { MNoticeComponent } from './admin/m-notice/m-notice.component';
+import { EStudentComponent } from './admin/e-student/e-student.component';
+import { ETeacherComponent } from './admin/e-teacher/e-teacher.component';
+import { MClassComponent } from './admin/m-class/m-class.component';
+import { MCourseComponent } from './admin/m-course/m-course.component';
+import { MDepartmentComponent } from './admin/m-department/m-department.component';
+import { MStudentComponent } from './admin/m-student/m-student.component';
+import { MTeacherComponent } from './admin/m-teacher/m-teacher.component';
 const routes: Routes = [
   {
     path:'',redirectTo:'layout/dashboard',pathMatch:"full"
@@ -85,6 +93,33 @@ const routes: Routes = [
       {
         path:'add_notice',component:AddNoticeComponent
       },
+      {
+        path:'m_notice',component:MNoticeComponent
+      },
+      {
+        path:'m_notes',component:MNotesComponent
+      },
+      {
+        path:'e_student',component:EStudentComponent
+      },
+      {
+        path:'e_teacher',component:ETeacherComponent
+      },
+      {
+        path:'m_semester',component:MClassComponent
+      },
+      {
+        path:'m_course/:_id',component:MCourseComponent
+      },
+      {
+        path:'m_department/:_id',component:MDepartmentComponent
+      },
+      {
+        path:'m_student',component:MStudentComponent
+      },
+      {
+        path:'m_teacher',component:MTeacherComponent
+      },
     ]
   },
   {
@@ -97,7 +132,7 @@ const routes: Routes = [
         path:'add_assignments',component:AddAssignmentsComponent
       },
       {
-        path:'add_class',component:AddClassesComponent
+        path:'add_lecture',component:AddClassesComponent
       },
       {
         path:'add_notes',component:AddNotesComponent
@@ -115,7 +150,7 @@ const routes: Routes = [
         path:'m_assignments',component:MAssignmentsComponent
       },
       {
-        path:'m_class',component:MClassesComponent
+        path:'m_lecture',component:MClassesComponent
       },
       {
         path:'m_notes',component:MNotesComponent
