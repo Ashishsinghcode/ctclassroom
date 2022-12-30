@@ -17,7 +17,6 @@ import { AdminHeaderComponent } from './admin/admin-header/admin-header.componen
 import { AdminFooterComponent } from './admin/admin-footer/admin-footer.component';
 import { AddCourseComponent } from './admin/add-course/add-course.component';
 import { AddDepartmentComponent } from './admin/add-department/add-department.component';
-import { AddClassComponent } from './admin/add-class/add-class.component';
 import { AddTeacherComponent } from './admin/add-teacher/add-teacher.component';
 import { AddSubjectComponent } from './admin/add-subject/add-subject.component';
 import { AddStudentComponent } from './admin/add-student/add-student.component';
@@ -56,7 +55,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { HttpClientModule } from '@angular/common/http';
-import { MClassComponent } from './admin/m-class/m-class.component';
 import { MCourseComponent } from './admin/m-course/m-course.component';
 import { MDepartmentComponent } from './admin/m-department/m-department.component';
 import { MNoticeComponent } from './admin/m-notice/m-notice.component';
@@ -65,6 +63,8 @@ import { EStudentComponent } from './admin/e-student/e-student.component';
 import { ETeacherComponent } from './admin/e-teacher/e-teacher.component';
 import { MSubjectComponent } from './admin/m-subject/m-subject.component';
 import { MTeacherComponent } from './admin/m-teacher/m-teacher.component';
+import { MSemesterComponent } from './admin/m-semester/m-semester.component';
+import { AddSemesterComponent } from './admin/add-semester/add-semester.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -83,7 +83,6 @@ import { MTeacherComponent } from './admin/m-teacher/m-teacher.component';
     AdminFooterComponent,
     AddCourseComponent,
     AddDepartmentComponent,
-    AddClassComponent,
     AddTeacherComponent,
     AddSubjectComponent,
     AddStudentComponent,
@@ -115,7 +114,6 @@ import { MTeacherComponent } from './admin/m-teacher/m-teacher.component';
     StudentHeaderComponent,
     StudentFooterComponent,
     StudentDashboardComponent,
-    MClassComponent,
     MCourseComponent,
     MDepartmentComponent,
     MNoticeComponent,
@@ -124,6 +122,8 @@ import { MTeacherComponent } from './admin/m-teacher/m-teacher.component';
     ETeacherComponent,
     MSubjectComponent,
     MTeacherComponent,
+    MSemesterComponent,
+    AddSemesterComponent
    
   
   ],

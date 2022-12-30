@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MClassComponent } from './m-class.component';
+import { MSemesterComponent } from './m-semester.component';
 
-describe('MClassComponent', () => {
-  let component: MClassComponent;
-  let fixture: ComponentFixture<MClassComponent>;
+describe('MSemesterComponent', () => {
+  let component: MSemesterComponent;
+  let fixture: ComponentFixture<MSemesterComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MClassComponent ]
+      declarations: [ MSemesterComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(MClassComponent);
+    fixture = TestBed.createComponent(MSemesterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

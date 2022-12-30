@@ -1,6 +1,6 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AddClassComponent } from './admin/add-class/add-class.component';
+
 import { AddCourseComponent } from './admin/add-course/add-course.component';
 import { AddDepartmentComponent } from './admin/add-department/add-department.component';
 import { AddNoticeComponent } from './admin/add-notice/add-notice.component';
@@ -43,11 +43,12 @@ import { AuthGuard } from './auth/auth.guard';
 import { MNoticeComponent } from './admin/m-notice/m-notice.component';
 import { EStudentComponent } from './admin/e-student/e-student.component';
 import { ETeacherComponent } from './admin/e-teacher/e-teacher.component';
-import { MClassComponent } from './admin/m-class/m-class.component';
+import {  MSemesterComponent } from './admin/m-semester/m-semester.component';
 import { MCourseComponent } from './admin/m-course/m-course.component';
 import { MDepartmentComponent } from './admin/m-department/m-department.component';
 import { MStudentComponent } from './admin/m-student/m-student.component';
 import { MTeacherComponent } from './admin/m-teacher/m-teacher.component';
+import { AddSemesterComponent } from './admin/add-semester/add-semester.component';
 const routes: Routes = [
   {
     path:'',redirectTo:'layout/dashboard',pathMatch:"full"
@@ -79,7 +80,7 @@ const routes: Routes = [
         path:'add_course',component:AddCourseComponent
       },
       {
-        path:'add_class',component:AddClassComponent
+        path:'add_semester',component:AddSemesterComponent
       },
       {
         path:'add_teacher',component:AddTeacherComponent
@@ -106,7 +107,7 @@ const routes: Routes = [
         path:'e_teacher',component:ETeacherComponent
       },
       {
-        path:'m_semester',component:MClassComponent
+        path:'m_semester/:_id',component:MSemesterComponent
       },
       {
         path:'m_course/:_id',component:MCourseComponent

@@ -9,17 +9,21 @@
                 <table class="table border">
                     <tr class="border">
                         <th>#</th>
+                    
                         <th>Department Name</th>
-                        <th>Course ID</th>
                         <th>Course Name</th>
+                        <th>Semester ID</th>
+                        <th>Semester Name</th>
                         
                     </tr>
-                    <tr class="border" *ngFor="let course of coursedata;let i=index"> 
+                    <tr class="border" *ngFor="let semester of semesterdata;let i=index">
                         <td>{{ i+1 }}</td>
-                        <td>{{ course['department_id']['department_name'] }}</td>
-                        <td>{{ course['course_id'] }}</td>
-                        <td>{{ course['course_name'] }}</td>
-                        <td><span (click)="delete_course(course['_id'])" class=" text-danger fa fa-trash">Remove</span></td>
+                        <td>{{ semester['department_id']['department_name'] }}</td>
+                        <td>{{ semester['course_id']['course_name'] }}</td>
+                        <td>{{ semester['semester_id'] }}</td>
+                        <td>{{ semester['semester_name'] }}</td>
+                        <td>{{ semester[''] }}</td>
+                        <td><span (click)="delete_semester(semester['_id'])" class=" text-danger fa fa-trash">Remove</span></td>
                     </tr>
                 </table>
             </div>

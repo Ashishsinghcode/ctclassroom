@@ -14,10 +14,11 @@ export class MCourseComponent implements OnInit {
 
   ngOnInit(): void {
     this.get_course()
-    this.get_department
+    
   }
+  
   coursedata = []
-  departmentdata:any
+  
 
   get_course(){
     this.spinner.show()
@@ -25,6 +26,8 @@ export class MCourseComponent implements OnInit {
       next:(res:any)=>{
         this.spinner.hide()
         this.coursedata = res.data
+      
+
       },
       error:(err:any)=>{
         this.spinner.hide()
@@ -68,21 +71,5 @@ export class MCourseComponent implements OnInit {
       }
     })
   }
-  get_department(){
-    this.spinner.show()
-    this.adminservice.get_department().subscribe({
-      next:(res:any)=>{
-        this.spinner.hide()
-        // console.log(res)
-        this.departmentdata = res.data
-      },
-      error:(err:any)=>{
-        this.spinner.hide()
-        console.log(err)
-      },
-      complete:()=>{
-        this.spinner.hide()
-      }
-    })
-  }
+  
 }

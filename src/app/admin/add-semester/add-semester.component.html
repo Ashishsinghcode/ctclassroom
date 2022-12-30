@@ -1,0 +1,51 @@
+<!-- banner section -->
+<section id="home" class="w3l-banner ">
+    <div class="banner-content">
+        <div class="container py-4">
+            <form (ngform)="addSemester" autocomplete="off">
+                <div class="row align-items-center pt-sm-5 pt-4">
+                    <div class="col-md-5">
+                        <label class="mt-3"><b>Department Name</b></label>
+                        <ng-select class="form-control-default border border-warning rounded" placeholder=""  #dep_name name="dep_name" [(ngModel)]="addSemester.department_id">
+                            <ng-option *ngFor="let department of departmentdata" [value]="department._id">{{department.department_name}}</ng-option>
+                         </ng-select>
+
+                         <label class="mt-3"><b>Course Name</b></label>
+                        <ng-select class="form-control-default border border-warning rounded" placeholder=""  #cou_name name="cou_name" [(ngModel)]="addSemester.course_id">
+                            <ng-option *ngFor="let course of coursedata" [value]="course._id">{{course.course_name}}</ng-option>
+                         </ng-select>
+
+                        <label><b>Semester Id</b></label>
+                        <input class="form-control border-warning" type="text" placeholder="Class Id" #classid name="classid" [(ngModel)]="addSemester.semester_id" required>
+
+                        <label class="mt-3"><b>Semester Name</b></label>
+                        <input class="form-control border-warning" type="text" placeholder="Class Name" #classname name="classname" [(ngModel)]="addSemester.semester_name" required>
+
+                        
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <button type="submit" (click)="add_semester()" class="form-control bg-warning text-light"><strong>Add</strong></button>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <button type="button" class="form-control bg-primary text-light" routerLink="/admin/m_semester/:_id"><strong><i class="fa fa-edit"></i>Edit</strong></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-6 right-banner-2 text-end position-relative mt-md-0 mt-5">
+                        <div class=" mx-auto">
+                            <img src="assets/images/addclass.png" class="img-fluid position-relative" alt="">
+                        </div>
+                        <div class="banner-style-1 position-absolute  ">
+                            <div class="banner-style-2 position-relative">
+                                <h4>Add Class</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+<!-- //banner section -->
