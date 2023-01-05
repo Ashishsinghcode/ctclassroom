@@ -4,21 +4,23 @@
         <h1 class="mt-4 text-center mb-4">Manage Department</h1>
         <div class="card mb-4">
             <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover text table-striped">
+                        <tr class="">
+                            <th>#</th>
+                            <th>Department ID</th>
+                            <th>Department Name</th>
+                            <th>Action</th>
+                        </tr>
+                        <tr class="" *ngFor="let department of departmentdata;let i=index">
+                            <td>{{ i+1 }}</td>
+                            <td>{{ department['department_id'] }}</td>
+                            <td>{{ department['department_name'] }}</td>
+                            <td><span (click)="delete_department(department['_id'])" class="  fa fa-trash "></span></td>
+                        </tr>
+                    </table>
 
-                <table class="table border">
-                    <tr class="border">
-                        <th>#</th>
-                        <th>Department ID</th>
-                        <th>Department Name</th>
-                        
-                    </tr>
-                    <tr class="border" *ngFor="let department of departmentdata;let i=index">
-                        <td>{{ i+1 }}</td>
-                        <td>{{ department['department_id'] }}</td>
-                        <td>{{ department['department_name'] }}</td>
-                        <td><span (click)="delete_department(department['_id'])" class=" text-danger fa fa-trash">Remove</span></td>
-                    </tr>
-                </table>
+                </div>
             </div>
         </div>
     </div>

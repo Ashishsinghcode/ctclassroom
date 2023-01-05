@@ -9,8 +9,10 @@ export class AuthService {
 
   createService(response:any){
     
+    localStorage.setItem("name",response.name)
     localStorage.setItem("email",response.email)
     localStorage.setItem("token",response.token)
+    
   }
 
   getService(){

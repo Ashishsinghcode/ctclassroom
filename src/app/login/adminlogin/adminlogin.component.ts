@@ -28,8 +28,8 @@ loginForm = {
       (res:any)=>{
         this.spinner.hide()
         if(res.success == true){
-          this.authservice.createService(res.token)
-          this.authservice.createService(this.loginForm.email)
+          
+          this.authservice.createService(res)
           this.toastr.success('Success',res.message)
           this.router.navigateByUrl('/admin/admin_dashboard')
         }

@@ -7,12 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddTeacherComponent implements OnInit {
   addTeacher={
-    teachid:'',
-    teachname:'',
-    teachemail:'',
-    teachqualification:'',
-    teachcontact:'',
-    teachpassword:''
+    teacher_id:'',
+    teacher_name:'',
+    email:'',
+    qualification:'',
+    contact:'',
+    password:''
   }
 
   constructor() { }

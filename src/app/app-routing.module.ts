@@ -107,13 +107,13 @@ const routes: Routes = [
         path:'e_teacher',component:ETeacherComponent
       },
       {
-        path:'m_semester/:_id',component:MSemesterComponent
+        path:'m_semester',component:MSemesterComponent
       },
       {
-        path:'m_course/:_id',component:MCourseComponent
+        path:'m_course',component:MCourseComponent
       },
       {
-        path:'m_department/:_id',component:MDepartmentComponent
+        path:'m_department',component:MDepartmentComponent
       },
       {
         path:'m_student',component:MStudentComponent

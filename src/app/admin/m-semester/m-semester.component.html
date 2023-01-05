@@ -6,14 +6,14 @@
             <div class="card-body">
                
                
-                <table class="table border">
+                <table class="table table-hover table-striped border">
                     <tr class="border">
                         <th>#</th>
-                    
                         <th>Department Name</th>
                         <th>Course Name</th>
                         <th>Semester ID</th>
                         <th>Semester Name</th>
+                        <th>Action</th>
                         
                     </tr>
                     <tr class="border" *ngFor="let semester of semesterdata;let i=index">
@@ -22,8 +22,7 @@
                         <td>{{ semester['course_id']['course_name'] }}</td>
                         <td>{{ semester['semester_id'] }}</td>
                         <td>{{ semester['semester_name'] }}</td>
-                        <td>{{ semester[''] }}</td>
-                        <td><span (click)="delete_semester(semester['_id'])" class=" text-danger fa fa-trash">Remove</span></td>
+                        <td><span (click)="delete_semester(semester['_id'])" class=" fa fa-trash"></span></td>
                     </tr>
                 </table>
             </div>

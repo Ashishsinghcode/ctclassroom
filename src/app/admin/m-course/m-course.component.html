@@ -6,12 +6,13 @@
             <div class="card-body">
                
                
-                <table class="table border">
+                <table class="table table-hover table-striped border">
                     <tr class="border">
                         <th>#</th>
                         <th>Department Name</th>
                         <th>Course ID</th>
                         <th>Course Name</th>
+                        <th>Action</th>
                         
                     </tr>
                     <tr class="border" *ngFor="let course of coursedata;let i=index"> 
@@ -19,7 +20,7 @@
                         <td>{{ course['department_id']['department_name'] }}</td>
                         <td>{{ course['course_id'] }}</td>
                         <td>{{ course['course_name'] }}</td>
-                        <td><span (click)="delete_course(course['_id'])" class=" text-danger fa fa-trash">Remove</span></td>
+                        <td><span (click)="delete_course(course['_id'])" class="  fa fa-trash"></span></td>
                     </tr>
                 </table>
             </div>
