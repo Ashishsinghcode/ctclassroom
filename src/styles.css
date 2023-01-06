@@ -15,4 +15,12 @@
     background-color: #ffd160;
     color: white;
 }
+ table  tr  td{
+    border:2px solid black;
+    padding:7px
+} 
+th{
+    border:2px solid black;
+    padding:7px
+}
 

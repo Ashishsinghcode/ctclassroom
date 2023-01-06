@@ -1,47 +1,50 @@
+<ngx-spinner type="ball-scale-multiple"></ngx-spinner>
+
 <!-- banner section -->
 <section id="home" class="w3l-banner ">
     <div class="banner-content">
         <div class="container py-4">
-            <form (ngform)="addStudent" autocomplete="off">
+            <form [formGroup]="addStudent" autocomplete="off">
                 <div class="row align-items-center pt-sm-5 pt-4">
                     <div class="col-md-5">
-                        <label><b>Roll number</b></label>
-                        <input class="form-control border-warning" type="text" placeholder="Roll number" #rollno name="rollno" [(ngModel)]="addStudent.rollno" required>
-
-                        <label class="mt-3"><b>Student Name</b></label>
-                        <input class="form-control border-warning" type="text" placeholder="Student Name"  #stuname name="stuname" [(ngModel)]="addStudent.stuname" required>
-
-                        <label class="mt-3"><b>Department Name</b></label>
-                        <ng-select class="form-control-default border border-warning rounded" placeholder=""  #dep_name name="dep_name" [(ngModel)]="addStudent.dep_name">
-                            <ng-option *ngFor="let department of departments" [value]="department.id">{{department.name}}</ng-option>
+                        <label class=""><b>Department Name</b></label>
+                        <ng-select class="form-control-default border border-warning rounded" placeholder=""  #dep_name name="dep_name" formControlName="department_id">
+                            <ng-option *ngFor="let department of departmentdata" value="{{department._id}}">{{department.department_name}}</ng-option>
                          </ng-select>
 
                          <label class="mt-3"><b>Course Name</b></label>
-                        <ng-select class="form-control-default border border-warning rounded" placeholder=""  #cou_name name="cou_name" [(ngModel)]="addStudent.cou_name">
-                            <ng-option *ngFor="let course of courses" [value]="course.id">{{course.name}}</ng-option>
+                        <ng-select class="form-control-default border border-warning rounded" placeholder=""  #cou_name name="cou_name" formControlName="course_id">
+                            <ng-option *ngFor="let course of coursedata" value="{{course._id}}">{{course.course_name}}</ng-option>
                          </ng-select>
 
-                         <label class="mt-3"><b>Class Name</b></label>
-                        <ng-select class="form-control-default border border-warning rounded" placeholder=""  #class_name name="class_name" [(ngModel)]="addStudent.class_name">
-                            <ng-option *ngFor="let class of classes" [value]="class.id">{{class.name}}</ng-option>
+                         <label class="mt-3"><b>Semester Name</b></label>
+                        <ng-select class="form-control-default border border-warning rounded" placeholder=""  #class_name name="class_name" formControlName="semester_id">
+                            <ng-option *ngFor="let semester of semesterdata" value="{{semester._id}}">{{semester.semester_name}}</ng-option>
                          </ng-select>
+
+                        <label class="mt-3"><b>Roll number</b></label>
+                        <input class="form-control border-warning" type="text" placeholder="Roll number" #rollno name="rollno" formControlName="rollno" required>
+
+                        <label class="mt-3"><b>Student Name</b></label>
+                        <input class="form-control border-warning" type="text" placeholder="Student Name"  #stuname name="stuname" formControlName="student_name" required>
+
 
                         <label class="mt-3"><b>Email</b></label>
-                        <input class="form-control border-warning" type="text" placeholder="Email" #stuemail name="stuemail" [(ngModel)]="addStudent.stuemail" required>
+                        <input class="form-control border-warning" type="text" placeholder="Email" #stuemail name="stuemail" formControlName="email" required>
 
                         <label class="mt-3"><b>Password</b></label>
-                        <input class="form-control border-warning" type="text" placeholder="Password" #stupassword name="stupassword" [(ngModel)]="addStudent.stupassword" required>
+                        <input class="form-control border-warning" type="text" placeholder="Password" #stupassword name="stupassword" formControlName="password" required>
 
                         <label class="mt-3"><b>Contact</b></label>
-                        <input class="form-control border-warning" type="text" placeholder="Contact" #stucontact name="stucontact" [(ngModel)]="addStudent.stucontact" required>
+                        <input class="form-control border-warning" type="text" placeholder="Contact" #stucontact name="stucontact" formControlName="contact" required>
                         
                         
                         <div class="row mt-3">
                             <div class="col-md-6">
-                                <button class="form-control bg-warning text-light"><strong>Add</strong></button>
+                                <button type="submit" (click)="add_student()"  class="form-control bg-warning text-light"><strong>Add</strong></button>
                             </div>
                             <div class="col-md-6">
-                                <button class="form-control bg-primary text-light"><strong><i class="fa fa-edit"></i>Edit</strong></button>
+                                <button type="button" routerLink="/admin/m_student" class="form-control bg-primary text-light"><strong><i class="fa fa-eye"></i>View Student</strong></button>
                             </div>
                         </div>
                     </div>

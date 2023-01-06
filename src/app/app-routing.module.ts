@@ -49,6 +49,7 @@ import { MDepartmentComponent } from './admin/m-department/m-department.componen
 import { MStudentComponent } from './admin/m-student/m-student.component';
 import { MTeacherComponent } from './admin/m-teacher/m-teacher.component';
 import { AddSemesterComponent } from './admin/add-semester/add-semester.component';
+import { MSubjectComponent } from './admin/m-subject/m-subject.component';
 const routes: Routes = [
   {
     path:'',redirectTo:'layout/dashboard',pathMatch:"full"
@@ -101,10 +102,10 @@ const routes: Routes = [
         path:'m_notes',component:MNotesComponent
       },
       {
-        path:'e_student',component:EStudentComponent
+        path:'e_student/:_id',component:EStudentComponent
       },
       {
-        path:'e_teacher',component:ETeacherComponent
+        path:'e_teacher/:_id',component:ETeacherComponent
       },
       {
         path:'m_semester',component:MSemesterComponent
@@ -114,6 +115,9 @@ const routes: Routes = [
       },
       {
         path:'m_department',component:MDepartmentComponent
+      },
+      {
+        path:'m_subject',component:MSubjectComponent
       },
       {
         path:'m_student',component:MStudentComponent

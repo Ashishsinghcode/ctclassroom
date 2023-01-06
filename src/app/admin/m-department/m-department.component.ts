@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { AdminService } from 'src/app/shared/admin/admin.service';
+import { DepartmentService } from 'src/app/shared/department/department.service';
 import Swal from 'sweetalert2';
 @Component({
   selector: 'app-m-department',
@@ -9,7 +9,7 @@ import Swal from 'sweetalert2';
 })
 export class MDepartmentComponent implements OnInit {
 
-  constructor(private spinner : NgxSpinnerService, private adminservice :AdminService) { }
+  constructor(private spinner : NgxSpinnerService, private departmentservice :DepartmentService) { }
 
   ngOnInit(): void {
     this.get_department()
@@ -18,7 +18,7 @@ export class MDepartmentComponent implements OnInit {
 
   get_department(){
     this.spinner.show()
-    this.adminservice.get_department().subscribe({
+    this.departmentservice.get_department().subscribe({
       next:(res:any)=>{
         this.spinner.hide()
         // console.log(res)
@@ -47,7 +47,7 @@ export class MDepartmentComponent implements OnInit {
     })
     .then((result) => {
       if (result.isConfirmed) {
-        this.adminservice.delete_department(_id).subscribe({
+        this.departmentservice.delete_department(_id).subscribe({
           next:(result:any)=>{
             console.log(result)
             Swal.fire(

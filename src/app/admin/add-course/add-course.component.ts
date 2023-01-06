@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
-import { AdminService } from 'src/app/shared/admin/admin.service';
+import { CourseService } from 'src/app/shared/course/course.service';
+import { DepartmentService } from 'src/app/shared/department/department.service';
 
 @Component({
   selector: 'app-add-course',
@@ -16,7 +17,7 @@ export class AddCourseComponent implements OnInit {
   }
 
   
-  constructor(private spinner : NgxSpinnerService, private toastr : ToastrService, private adminservice : AdminService, ) { }
+  constructor(private spinner : NgxSpinnerService, private toastr : ToastrService, private courseservice : CourseService,private departmentservice :DepartmentService ) { }
   
   departmentdata:any 
 
@@ -25,7 +26,7 @@ export class AddCourseComponent implements OnInit {
   }
   add_course(){
     this.spinner.show()
-    this.adminservice.add_course(this.addCourse).subscribe(
+    this.courseservice.add_course(this.addCourse).subscribe(
       (res:any)=>{
         this.spinner.hide()
         if(res.success == true){
@@ -43,7 +44,7 @@ export class AddCourseComponent implements OnInit {
   }
   get_department(){
     this.spinner.show()
-    this.adminservice.get_department().subscribe({
+    this.departmentservice.get_department().subscribe({
       next:(res:any)=>{
         this.spinner.hide()
         // console.log(res)

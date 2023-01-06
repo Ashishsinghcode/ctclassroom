@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
-import { AdminService } from 'src/app/shared/admin/admin.service';
+import { CourseService } from 'src/app/shared/course/course.service';
+import { DepartmentService } from 'src/app/shared/department/department.service';
+import { SemesterService } from 'src/app/shared/semester/semester.service';
 
 @Component({
   selector: 'app-add-semester',
@@ -16,7 +18,7 @@ export class AddSemesterComponent implements OnInit {
     department_id:''
   }
   
-  constructor(private spinner : NgxSpinnerService, private toastr : ToastrService, private adminservice : AdminService ) { }
+  constructor(private spinner : NgxSpinnerService, private toastr : ToastrService, private courseservice : CourseService, private departmentservice : DepartmentService, private semesterservice: SemesterService ) { }
   departmentdata:any
   coursedata:any 
 
@@ -26,7 +28,7 @@ export class AddSemesterComponent implements OnInit {
   }
   add_semester(){
     this.spinner.show()
-    this.adminservice.add_semester(this.addSemester).subscribe(
+    this.semesterservice.add_semester(this.addSemester).subscribe(
       (res:any)=>{
         this.spinner.hide()
         if(res.success == true){
@@ -44,7 +46,7 @@ export class AddSemesterComponent implements OnInit {
   }
   get_department(){
     this.spinner.show()
-    this.adminservice.get_department().subscribe({
+    this.departmentservice.get_department().subscribe({
       next:(res:any)=>{
         this.spinner.hide()
          //console.log(res.data)
@@ -61,7 +63,7 @@ export class AddSemesterComponent implements OnInit {
   }
   get_course(){
     this.spinner.show()
-    this.adminservice.get_course().subscribe({
+    this.courseservice.get_course().subscribe({
       next:(res:any)=>{
         this.spinner.hide()
         // console.log(res)

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { AdminService } from 'src/app/shared/admin/admin.service';
+import { CourseService } from 'src/app/shared/course/course.service';
+import { DepartmentService } from 'src/app/shared/department/department.service';
+import { SemesterService } from 'src/app/shared/semester/semester.service';
 import Swal from 'sweetalert2';
 @Component({
   selector: 'app-m-semester',
@@ -9,7 +11,7 @@ import Swal from 'sweetalert2';
 })
 export class MSemesterComponent implements OnInit {
 
-  constructor(private spinner : NgxSpinnerService, private adminservice :AdminService) { }
+  constructor(private spinner : NgxSpinnerService, private semesterservice :SemesterService, private departmentservice : DepartmentService, private courseservice : CourseService) { }
   ngOnInit(): void {
     this.get_semester()
     this.get_course()
@@ -21,7 +23,7 @@ export class MSemesterComponent implements OnInit {
 
   get_semester(){
     this.spinner.show()
-    this.adminservice.get_semester().subscribe({
+    this.semesterservice.get_semester().subscribe({
       next:(res:any)=>{
         this.spinner.hide()
         this.semesterdata = res.data
@@ -49,7 +51,7 @@ export class MSemesterComponent implements OnInit {
     })
     .then((result) => {
       if (result.isConfirmed) {
-        this.adminservice.delete_semester(_id).subscribe({
+        this.semesterservice.delete_semester(_id).subscribe({
           next:(result:any)=>{
             Swal.fire(
               'Deleted!',
@@ -72,7 +74,7 @@ export class MSemesterComponent implements OnInit {
 
       get_course(){
         this.spinner.show()
-        this.adminservice.get_course().subscribe({
+        this.courseservice.get_course().subscribe({
           next:(res:any)=>{
             this.spinner.hide()
             this.coursedata = res.data
@@ -88,7 +90,7 @@ export class MSemesterComponent implements OnInit {
 
   get_department(){
     this.spinner.show()
-    this.adminservice.get_department().subscribe({
+    this.departmentservice.get_department().subscribe({
       next:(res:any)=>{
         this.spinner.hide()
         // console.log(res)

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
-import { AdminService } from 'src/app/shared/admin/admin.service';
+import { DepartmentService } from 'src/app/shared/department/department.service';
 
 @Component({
   selector: 'app-add-department',
@@ -15,13 +15,13 @@ export class AddDepartmentComponent implements OnInit {
     department_name:''
   }
 
-  constructor(private toastr : ToastrService,private spinner : NgxSpinnerService,private router : Router, private adminservice : AdminService ) { }
+  constructor(private toastr : ToastrService,private spinner : NgxSpinnerService,private router : Router, private departmentservice : DepartmentService ) { }
 
   ngOnInit(): void {
   }
 add_department(){
   this.spinner.show()
-  this.adminservice.add_department(this.addDepartment).subscribe(
+  this.departmentservice.add_department(this.addDepartment).subscribe(
     (res:any)=>{
       this.spinner.hide()
       if(res.success == true){

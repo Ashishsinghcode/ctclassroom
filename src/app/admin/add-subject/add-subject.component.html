@@ -1,43 +1,46 @@
+<ngx-spinner type="ball-scale-multiple"></ngx-spinner>
+ 
 <!-- banner section -->
 <section id="home" class="w3l-banner ">
     <div class="banner-content">
         <div class="container py-4">
-            <form (ngform)="addSubject" autocomplete="off">
+            <form [formGroup]="addSubject" autocomplete="off">
                 <div class="row align-items-center pt-sm-5 pt-4">
                     <div class="col-md-5">
+                        
+                        
+                        <label class="mt-3"><b>Department Name</b></label>
+                        <ng-select class="form-control-default border border-warning rounded" placeholder=""  #dep_name name="dep_name" formControlName="department_id">
+                            <ng-option *ngFor="let department of departmentdata" value="{{department._id}}">{{department.department_name}}</ng-option>
+                        </ng-select>
+                        
+                        <label class="mt-3"><b>Course Name</b></label>
+                        <ng-select class="form-control-default border border-warning rounded" placeholder=""  #cou_name name="cou_name" formControlName="course_id">
+                            <ng-option *ngFor="let course of coursedata" value="{{course._id}}">{{course.course_name}}</ng-option>
+                        </ng-select>
+                        
+                        <label class="mt-3"><b>Semester Name</b></label>
+                        <ng-select class="form-control-default border border-warning rounded" placeholder=""  #semester_id name="semester_id" formControlName="semester_id">
+                            <ng-option *ngFor="let semester of semesterdata" value="{{semester._id}}">{{semester.semester_name}}</ng-option>
+                        </ng-select>
+                        
+                        <label class="mt-3"><b>Teacher Name</b></label>
+                        <ng-select class="form-control-default border border-warning rounded" placeholder=""  #taech_name name="teach_name" formControlName="teacher_id">
+                            <ng-option *ngFor="let teacher of teacherdata" value="{{teacher._id}}">{{teacher.teacher_name}}</ng-option>
+                        </ng-select>
+                        
                         <label><b>Subject Id<sup>*</sup></b></label>
-                        <input class="form-control border-warning" type="text" placeholder="Subject Id" #subid name="subid" [(ngModel)]="addSubject.subid" required>
+                        <input class="form-control border-warning" type="text" placeholder="Subject Id" #subject_id name="subject_id" formControlName="subject_id" required>
 
                         <label class="mt-3"><b>Subject Name</b></label>
-                        <input class="form-control border-warning" type="text" placeholder="Subject Name" #subname name="subname" [(ngModel)]="addSubject.subname" required>
-                        
-                       
-                        <label class="mt-3"><b>Department Name</b></label>
-                        <ng-select class="form-control-default border border-warning rounded" placeholder=""  #dep_name name="dep_name" [(ngModel)]="addSubject.dep_name">
-                            <ng-option *ngFor="let department of departments" [value]="department.id">{{department.name}}</ng-option>
-                         </ng-select>
-
-                         <label class="mt-3"><b>Course Name</b></label>
-                        <ng-select class="form-control-default border border-warning rounded" placeholder=""  #cou_name name="cou_name" [(ngModel)]="addSubject.cou_name">
-                            <ng-option *ngFor="let course of courses" [value]="course.id">{{course.name}}</ng-option>
-                         </ng-select>
-
-                         <label class="mt-3"><b>Class Name</b></label>
-                        <ng-select class="form-control-default border border-warning rounded" placeholder=""  #class_name name="class_name" [(ngModel)]="addSubject.class_name">
-                            <ng-option *ngFor="let class of classes" [value]="class.id">{{class.name}}</ng-option>
-                         </ng-select>
-
-                         <label class="mt-3"><b>Teacher Name</b></label>
-                        <ng-select class="form-control-default border border-warning rounded" placeholder=""  #taech_name name="teach_name" [(ngModel)]="addSubject.teach_name">
-                            <ng-option *ngFor="let teacher of teachers" [value]="teacher.id">{{teacher.name}}</ng-option>
-                         </ng-select>
+                        <input class="form-control border-warning" type="text" placeholder="Subject Name" #subject_name name="subject_name" formControlName="subject_name" required>
 
                         <div class="row mt-3">
                             <div class="col-md-6">
-                                <button class="form-control bg-warning text-light"><strong>Add</strong></button>
+                                <button type="submit" (click)="add_subject()" class="form-control bg-warning text-light"><strong>Add</strong></button>
                             </div>
                             <div class="col-md-6">
-                                <button class="form-control bg-primary text-light"><strong><i class="fa fa-edit"></i>Edit</strong></button>
+                                <button type="button" class="form-control bg-primary text-light" routerLink="/admin/m_subject"><strong><i class="fa fa-eye"></i>View Subject</strong></button>
                             </div>
                         </div>
                     </div>

@@ -1,3 +1,5 @@
+<ngx-spinner type="ball-scale-multiple"></ngx-spinner>
+
 <!-- banner section -->
 <section id="home" class="w3l-banner ">
     <div class="banner-content">
@@ -26,10 +28,10 @@
                         
                         <div class="row mt-3">
                             <div class="col-md-6">
-                                <button class="form-control bg-warning text-light"><strong>Add</strong></button>
+                                <button type="button" class="form-control bg-warning text-light" (click)="add_teacher()"><strong>Add</strong></button>
                             </div>
                             <div class="col-md-6">
-                                <button class="form-control bg-primary text-light"><strong><i class="fa fa-edit"></i>Edit</strong></button>
+                                <button type="button" class="form-control bg-primary text-light" routerLink="/admin/m_teacher"><strong><i class="fa fa-eye"></i>View Teacher</strong></button>
                             </div>
                         </div>
                     </div>

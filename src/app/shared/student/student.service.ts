@@ -5,7 +5,7 @@ import { AuthService } from '../auth/auth.service';
 @Injectable({
   providedIn: 'root'
 })
-export class TeacherService {
+export class StudentService {
 
   baseurl:any
   token:any
@@ -15,22 +15,22 @@ export class TeacherService {
       this.token = this.authservice.getToken()
     }
     //Department APIs
-    add_teacher(form:any){
-      return this.http.post(this.baseurl +'add_teacher',form)
+    add_student(form:any){
+      return this.http.post(this.baseurl +'add_student',form)
     }
-      get_teacher(){
+      get_student(){
         // console.log(this.token)
         var header_object = new HttpHeaders().set('Authorization',this.token);
-        return this.http.get(this.baseurl+"get_teacher",{headers:header_object})
+        return this.http.get(this.baseurl+"get_student",{headers:header_object})
       }
-      get_single_teacher(form:any)
+      get_single_student(form:any)
       {
         
         var header_object = new HttpHeaders().set('Authorization',this.token);
-        return this.http.post(this.baseurl+"get_single_teacher",form,{headers:header_object})
+        return this.http.post(this.baseurl+"get_single_student",form,{headers:header_object})
       }
-      update_teacher(form:any){        
+      update_student(form:any){        
         var header_object = new HttpHeaders().set('Authorization',this.token);
-        return this.http.post(this.baseurl+"update_teacher",form,{headers:header_object})
+        return this.http.post(this.baseurl+"update_student",form,{headers:header_object})
       }
 }

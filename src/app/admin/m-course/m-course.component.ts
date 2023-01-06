@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { AdminService } from 'src/app/shared/admin/admin.service';
+import { CourseService } from 'src/app/shared/course/course.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
 })
 export class MCourseComponent implements OnInit {
 
-  constructor(private spinner : NgxSpinnerService, private adminservice :AdminService) { }
+  constructor(private spinner : NgxSpinnerService, private courseservice :CourseService) { }
 
   ngOnInit(): void {
     this.get_course()
@@ -22,10 +22,11 @@ export class MCourseComponent implements OnInit {
 
   get_course(){
     this.spinner.show()
-    this.adminservice.get_course().subscribe({
+    this.courseservice.get_course().subscribe({
       next:(res:any)=>{
         this.spinner.hide()
         this.coursedata = res.data
+        console.log(this.coursedata)
       
 
       },
@@ -51,7 +52,7 @@ export class MCourseComponent implements OnInit {
     })
     .then((result) => {
       if (result.isConfirmed) {
-        this.adminservice.delete_course(_id).subscribe({
+        this.courseservice.delete_course(_id).subscribe({
           next:(result:any)=>{
             Swal.fire(
               'Deleted!',

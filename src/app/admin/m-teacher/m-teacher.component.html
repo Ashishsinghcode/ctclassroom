@@ -1,1 +1,41 @@
-<p>m-teacher works!</p>
+<ngx-spinner type="ball-scale-multiple"></ngx-spinner>
+<main>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4 text-center mb-4">Manage Course</h1>
+        <div class="card mb-4">
+            <div class="card-body">
+               
+               
+                <table class="table table-hover table-striped border">
+                    <tr class="border">
+                        <th>#</th>
+                        <th>Teacher ID</th>
+                        <th>Teacher Name</th>
+                        <th>Email</th>
+                        <th>Qualification</th>
+                        <th>Contact</th>
+                        <th>Edit</th>
+                        <th>Status</th>
+                        
+                        
+                        
+                    </tr>
+                    <tr class="border" *ngFor="let teacher of teacherdata;let i=index"> 
+                        <td>{{ i+1 }}</td>
+                        <td>{{ teacher['teacher_id'] }}</td>
+                        <td>{{ teacher['teacher_name'] }}</td>
+                        <td>{{ teacher['email'] }}</td>
+                        <td>{{ teacher['qualification'] }}</td>
+                        <td>{{ teacher['contact'] }}</td>
+                        <td><span [routerLink]="['/admin/e_teacher/',teacher['_id']]" class="fa fa-edit"></span></td>
+                        <td>{{ teacher['is_blocked'] }}</td>
+                        
+                        
+                       
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</main>

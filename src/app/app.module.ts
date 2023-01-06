@@ -137,7 +137,8 @@ import { AddSemesterComponent } from './admin/add-semester/add-semester.componen
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
     NgxSpinnerModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
     
   ],
   providers: [],
