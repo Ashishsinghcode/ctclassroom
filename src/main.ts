@@ -11,10 +11,17 @@ if (environment.production) {
 export function baseurl(){
   return "http://localhost:3000/ct/";
 }
+export function fileurl(){
+  return "http://localhost:3000/files/";
+
+}
 
 const provider = [
   {
     provide:'baseurl',useFactory:baseurl,deps:[]
+  },
+  {
+    provide:'fileurl',useFactory:fileurl,deps:[]
   }
 ]
 

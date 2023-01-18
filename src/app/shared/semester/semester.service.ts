@@ -21,10 +21,10 @@ export class SemesterService {
     var header_object = new HttpHeaders().set('Authorization',"Bearer "+this.token);
     return this.http.get(this.baseurl+"get_semester",{headers:header_object})
   }
-  delete_semester(_id:any)
+  delete_semester(form:any)
   {
     
     var header_object = new HttpHeaders().set('Authorization',"Bearer "+this.token);
-    return this.http.delete(this.baseurl+"delete_semester/"+_id,{headers:header_object})
+    return this.http.post(this.baseurl+"delete_semester",form,{headers:header_object})
   }
 }

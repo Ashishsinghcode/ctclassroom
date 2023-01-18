@@ -99,9 +99,6 @@ const routes: Routes = [
         path:'m_notice',component:MNoticeComponent
       },
       {
-        path:'m_notes',component:MNotesComponent
-      },
-      {
         path:'e_student/:_id',component:EStudentComponent
       },
       {
@@ -143,6 +140,9 @@ const routes: Routes = [
         path:'add_notes',component:AddNotesComponent
       },
       {
+        path:'add_class',component:AddClassesComponent
+      },
+      {
         path:'add_tests',component:AddTestsComponent
       },
       {
@@ -159,6 +159,9 @@ const routes: Routes = [
       },
       {
         path:'m_notes',component:MNotesComponent
+      },
+      {
+        path:'m_class',component:MClassesComponent
       },
       {
         path:'m_tests',component:MTestsComponent

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { CourseService } from 'src/app/shared/course/course.service';
 import { DepartmentService } from 'src/app/shared/department/department.service';
@@ -10,7 +11,9 @@ import Swal from 'sweetalert2';
   styleUrls: ['./m-semester.component.css']
 })
 export class MSemesterComponent implements OnInit {
-
+deleteSemester =new FormGroup({
+  _id : new FormControl()
+})
   constructor(private spinner : NgxSpinnerService, private semesterservice :SemesterService, private departmentservice : DepartmentService, private courseservice : CourseService) { }
   ngOnInit(): void {
     this.get_semester()
@@ -38,7 +41,8 @@ export class MSemesterComponent implements OnInit {
     })
   }
 
-  delete_semester(_id:any){
+  delete_semester(form:any){
+    this.deleteSemester.patchValue({'_id':form})
     
     Swal.fire({
       title: 'Are you sure?',
@@ -51,7 +55,7 @@ export class MSemesterComponent implements OnInit {
     })
     .then((result) => {
       if (result.isConfirmed) {
-        this.semesterservice.delete_semester(_id).subscribe({
+        this.semesterservice.delete_semester(this.deleteSemester.value).subscribe({
           next:(result:any)=>{
             Swal.fire(
               'Deleted!',

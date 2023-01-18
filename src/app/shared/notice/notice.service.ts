@@ -5,7 +5,7 @@ import { AuthService } from '../auth/auth.service';
 @Injectable({
   providedIn: 'root'
 })
-export class SubjectService {
+export class NoticeService {
 
   baseurl:any
   token:any
@@ -13,19 +13,20 @@ export class SubjectService {
     this.baseurl = _baseurl
     this.token = this.authservice.getToken()
   }
-  //Semester APIs
-  add_subject(form:any){
-    return this.http.post(this.baseurl +'add_subject',form)
-  }
-  get_subject(){
+  add_notice(form:any){
     // console.log(this.token)
     var header_object = new HttpHeaders().set('Authorization',this.token);
-    return this.http.get(this.baseurl+"get_subject",{headers:header_object})
+    return this.http.post(this.baseurl+"add_notice",form,{headers:header_object})
   }
-  delete_subject(form:any)
+  get_notice(){
+    // console.log(this.token)
+    var header_object = new HttpHeaders().set('Authorization',this.token);
+    return this.http.get(this.baseurl+"get_notice",{headers:header_object})
+  }
+  delete_notice(form:any)
   {    
     
     var header_object = new HttpHeaders().set('Authorization',this.token);
-    return this.http.post(this.baseurl+"delete_subject",form,{headers:header_object})
+    return this.http.post(this.baseurl+"delete_notice",form,{headers:header_object})
   }
 }

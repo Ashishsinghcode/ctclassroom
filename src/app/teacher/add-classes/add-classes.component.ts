@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TestBed } from '@angular/core/testing';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-add-classes',
@@ -6,14 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-classes.component.css']
 })
 export class AddClassesComponent implements OnInit {
-  addClass={
-    classname:'',
-    addclassname:'',
-    addtitle:'',
-    addlink:'',
-    adddate:'',
-    addtime:''
-  }
+  addClass=new FormGroup({
+    semester_id: new FormControl(),
+    classname:new FormControl(),
+    title:new FormControl(),
+    link:new FormControl(),
+    date:new FormControl(),
+    time:new FormControl()
+  })
   courses = [
     {
       'id':1,
@@ -27,6 +29,9 @@ export class AddClassesComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+  testtime(){
+    console.log(this.addClass.value)
   }
 
 }

@@ -22,11 +22,11 @@ token:any
 
     return this.http.get(this.baseurl+"get_department",{headers:header_object})
   }
-  delete_department(_id:any)
+  delete_department(form:any)
   {
     
     var header_object = new HttpHeaders().set('Authorization',"Bearer "+this.token);
-    return this.http.delete(this.baseurl+"delete_department/"+_id,{headers:header_object})
+    return this.http.post(this.baseurl+"delete_department",form,{headers:header_object})
   }
 
 }

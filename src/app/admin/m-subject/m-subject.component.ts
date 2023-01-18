@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { CourseService } from 'src/app/shared/course/course.service';
 import { DepartmentService } from 'src/app/shared/department/department.service';
@@ -12,7 +13,9 @@ import Swal from 'sweetalert2';
   styleUrls: ['./m-subject.component.css']
 })
 export class MSubjectComponent implements OnInit {
-
+deleteSubject = new FormGroup({
+_id : new FormControl()
+})
   constructor(private spinner : NgxSpinnerService, private semesterservice :SemesterService, private departmentservice : DepartmentService, private courseservice : CourseService, private subjectservice : SubjectService, private teacherservice : TeacherService) { }
   ngOnInit(): void {
     this.get_semester()
@@ -20,20 +23,21 @@ export class MSubjectComponent implements OnInit {
     this.get_department()
     this.get_subject()
     this.get_teacher()
+    
   }
   semesterdata:any
   coursedata:any
   departmentdata:any
   teacherdata:any
   subjectdata:any
-
+  
   get_subject(){
     this.spinner.show()
     this.subjectservice.get_subject().subscribe({
       next:(res:any)=>{
         this.spinner.hide()
         this.subjectdata = res.data
-        
+       
       },
       error:(err:any)=>{
         this.spinner.hide()
@@ -60,8 +64,9 @@ export class MSubjectComponent implements OnInit {
     })
   }
 
-  delete_subject(_id:any){
-    
+  delete_subject(form:any){
+    this.deleteSubject.patchValue({'_id':form})
+    console.log(form)
     Swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
@@ -73,13 +78,14 @@ export class MSubjectComponent implements OnInit {
     })
     .then((result) => {
       if (result.isConfirmed) {
-        this.subjectservice.delete_subject(_id).subscribe({
+        this.subjectservice.delete_subject(this.deleteSubject.value).subscribe({
           next:(result:any)=>{
             Swal.fire(
               'Deleted!',
               'Your file has been deleted.',
               'success'
               )
+              
               this.get_subject()
             },
             error:(err:any)=>{
