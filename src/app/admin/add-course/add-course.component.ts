@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { CourseService } from 'src/app/shared/course/course.service';
@@ -10,11 +11,11 @@ import { DepartmentService } from 'src/app/shared/department/department.service'
   styleUrls: ['./add-course.component.css']
 })
 export class AddCourseComponent implements OnInit {
-  addCourse={
-    course_id:'',
-    course_name:'',
-    department_id:''
-  }
+  addCourse= new FormGroup({
+    course_id:new FormControl(),
+    course_name:new FormControl(),
+    department_id:new FormControl()
+  })
 
   
   constructor(private spinner : NgxSpinnerService, private toastr : ToastrService, private courseservice : CourseService,private departmentservice :DepartmentService ) { }
@@ -26,7 +27,7 @@ export class AddCourseComponent implements OnInit {
   }
   add_course(){
     this.spinner.show()
-    this.courseservice.add_course(this.addCourse).subscribe(
+    this.courseservice.add_course(this.addCourse.value).subscribe(
       (res:any)=>{
         this.spinner.hide()
         if(res.success == true){

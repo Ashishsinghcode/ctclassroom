@@ -18,12 +18,13 @@
                         </div>
                     </div>
                     <div class="bottom-content">
-                        <form action="#" method="post">
-                            <input type="email" name="email" class="input-form" placeholder="Your Email"
-                                    required="required" />
+                        <form action="#" [formGroup]="teacherLogin"  method="post">
+                            <input type="email" name="email" class="input-form" placeholder="Your Email" required="required" formControlName="email" />
+                            
                             <input type="password" name="password" class="input-form"
-                                    placeholder="Your Password" required="required" />
-                            <button type="submit" class="loginhny-btn btn" routerLink="/teacher/teacher_dashboard">Login</button>
+                                    placeholder="Your Password" required="required" formControlName="password" />
+
+                            <button type="submit" (click)="login()" class="loginhny-btn btn">Login</button>
                            <span>Don't want to Login go to </span> <a routerLink="/layout/dashboard">Homepage</a>
                         </form>
                         

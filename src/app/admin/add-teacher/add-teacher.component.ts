@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { TeacherService } from 'src/app/shared/teacher/teacher.service';
@@ -9,14 +10,14 @@ import { TeacherService } from 'src/app/shared/teacher/teacher.service';
   styleUrls: ['./add-teacher.component.css']
 })
 export class AddTeacherComponent implements OnInit {
-  addTeacher={
-    teacher_id:'',
-    teacher_name:'',
-    email:'',
-    qualification:'',
-    contact:'',
-    password:''
-  }
+  addTeacher= new FormGroup({
+    teacher_id:new FormControl(),
+    teacher_name:new FormControl(),
+    email:new FormControl(),
+    qualification:new FormControl(),
+    contact:new FormControl(),
+    password:new FormControl()
+  })
 
   constructor(private teacherservice : TeacherService, private toastr : ToastrService, private spinner : NgxSpinnerService) { }
 
@@ -24,7 +25,7 @@ export class AddTeacherComponent implements OnInit {
   }
   add_teacher(){
   this.spinner.show()
-  this.teacherservice.add_teacher(this.addTeacher).subscribe(
+  this.teacherservice.add_teacher(this.addTeacher.value).subscribe(
     (res:any)=>{
       if(res.success == true){
         this.toastr.success('Success',res.message)

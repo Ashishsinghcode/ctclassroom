@@ -9,16 +9,16 @@
                     <div class="col-md-5">
                         
                         <label class=""><b>Department Name</b></label>
-                        <ng-select class="form-control-default border border-warning rounded" placeholder=""  #department name="department" [(ngModel)]="addCourse.department_id">
+                        <ng-select class="form-control-default border border-warning rounded" placeholder=""  #department name="department" formControlName="department_id">
                             <ng-option *ngFor="let department of departmentdata" [value]="department._id">{{department.department_name}}</ng-option>
                          </ng-select>
 
                         <label><b>Course Id</b></label>
-                        <input class="form-control border-warning mt-3" type="text" placeholder="Course Id" #couid name="couid" [(ngModel)]="addCourse.course_id" required>
+                        <input class="form-control border-warning mt-3" type="text" placeholder="Course Id" #couid name="couid" formControlName="course_id" required>
 
 
                         <label class="mt-3"><b>Course Name</b></label>
-                        <input class="form-control border-warning "  type="text" placeholder="Course Name" #couname name="couname" [(ngModel)]="addCourse.course_name">
+                        <input class="form-control border-warning "  type="text" placeholder="Course Name" #couname name="couname" formControlName="course_name">
                          
                         
                         <div class="row mt-3">

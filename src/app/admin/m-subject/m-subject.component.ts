@@ -66,7 +66,7 @@ _id : new FormControl()
 
   delete_subject(form:any){
     this.deleteSubject.patchValue({'_id':form})
-    console.log(form)
+    
     Swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",

@@ -4,16 +4,17 @@ import { NgxSpinnerService } from "ngx-spinner";
 import { UserService } from 'src/app/shared/user/user.service';
 import { AuthService } from 'src/app/shared/auth/auth.service';
 import { Router } from '@angular/router';
+import { FormControl, FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-adminlogin',
   templateUrl: './adminlogin.component.html',
   styleUrls: ['./adminlogin.component.css']
 })
 export class AdminloginComponent implements OnInit {
-loginForm = {
-  email :'',
-  password:''
-}
+loginForm = new FormGroup({
+  email : new FormControl(),
+  password : new FormControl()
+})
   constructor(private toastr : ToastrService, private spinner : NgxSpinnerService,private authservice : AuthService, private router : Router, private userservice : UserService) { }
 
   ngOnInit(): void {
@@ -24,7 +25,7 @@ loginForm = {
   }
    login(){
     this.spinner.show()
-    this.userservice.login(this.loginForm).subscribe(
+    this.userservice.login(this.loginForm.value).subscribe(
       (res:any)=>{
         this.spinner.hide()
         if(res.success == true){

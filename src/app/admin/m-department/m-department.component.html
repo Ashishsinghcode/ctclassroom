@@ -10,13 +10,15 @@
                             <th>#</th>
                             <th>Department ID</th>
                             <th>Department Name</th>
-                            <th>Action</th>
+                            <th>Change Status</th>
+                            <th>Blocked</th>
                         </tr>
                         <tr class="" *ngFor="let department of departmentdata;let i=index">
                             <td>{{ i+1 }}</td>
                             <td>{{ department['department_id'] }}</td>
                             <td>{{ department['department_name'] }}</td>
-                            <td><span (click)="delete_department(department['_id'])" class="  fa fa-trash "></span></td>
+                            <td><span (click)="delete_department(department['_id'])" class="  fa fa-edit"></span></td>
+                            <td>{{ department['is_blocked'] }}</td>
                         </tr>
                     </table>
 

@@ -22,11 +22,12 @@ export class MNoticeComponent implements OnInit {
 
   ngOnInit(): void {
     this.get_notice()
+    
   }
   noticedata = []
 
   getfileurl(filename:any){
-    console.log(this.fileurl+"notice/"+filename)
+    
     return this.sanitizer.bypassSecurityTrustResourceUrl(this.fileurl+"notice/"+filename)
   }
 

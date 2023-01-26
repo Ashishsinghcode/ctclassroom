@@ -12,7 +12,7 @@ export function baseurl(){
   return "http://localhost:3000/ct/";
 }
 export function fileurl(){
-  return "http://localhost:3000/files/";
+  return "http://localhost:3000/";
 
 }
 
