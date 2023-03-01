@@ -7,13 +7,15 @@
                     <div class="col-md-5">
                        
 
-                        <label class="mt-3"><b>Class Name</b></label>
-                        <ng-select class="form-control-default border border-warning rounded" placeholder=""  #cou_name name="cou_name" formControlName="classname">
-                            <ng-option *ngFor="let course of courses" [value]="course.id">{{course.name}}</ng-option>
+                        <label class="mt-3"><b>Subject</b></label>
+                        <ng-select class="form-control-default border border-warning rounded" placeholder=""  #cou_name name="cou_name" formControlName="subject_id">
+                            <ng-option *ngFor="let subject of subjectdata" value={{subject._id}}>{{subject.subject_name}}</ng-option>
                          </ng-select>
+                        
+                        
 
                         <input class="form-control border-warning mt-3" type="text" placeholder="Class Title" #addtitle name="title" formControlName="title" required>
-                        
+
                         <textarea class="mt-3 form-control bigbox"  placeholder="Class Link" #adddescription name="adddescription" formControlName="link" required></textarea>
                         
                         <input class="form-control mt-2 border-warning" type="date" placeholder="Course Name" #adddate name="date" formControlName="date" required>
@@ -23,7 +25,7 @@
                         
                         <div class="row mt-2">
                             <div class="col-md-6">
-                                <button type="submit" (click)="testtime()" class="form-control bg-warning text-light"><strong>Add</strong></button>
+                                <button type="submit" (click)="add_lecture()"  class="form-control bg-warning text-light"><strong>Add</strong></button>
                             </div>
                             <div class="col-md-6">
                                 <button type="button" class="form-control bg-primary text-light"><strong><i class="fa fa-edit"></i>Edit</strong></button>

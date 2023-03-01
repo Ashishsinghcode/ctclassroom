@@ -7,26 +7,26 @@ import { AuthService } from '../auth/auth.service';
 })
 export class ClassService {
 
-  baseurl:any
+  teacherurl:any
 token:any
-  constructor(private http: HttpClient,@Inject('baseurl') _baseurl:any,private authservice :AuthService ) { 
-    this.baseurl = _baseurl
+  constructor(private http: HttpClient,@Inject('teacherurl') _teacherurl:any,private authservice :AuthService ) { 
+    this.teacherurl = _teacherurl
     this.token = this.authservice.getToken()
   }
-  add_class(form:any){
+  add_lecture(form:any){
+    console.log(form)
+    var header_object = new HttpHeaders().set('Authorization',this.token);
+    return this.http.post(this.teacherurl+"add_lecture",form,{headers:header_object})
+  }
+  get_lecture(){
     // console.log(this.token)
     var header_object = new HttpHeaders().set('Authorization',this.token);
-    return this.http.post(this.baseurl+"add_class",form,{headers:header_object})
+    return this.http.get(this.teacherurl+"get_lecture",{headers:header_object})
   }
-  get_class(){
-    // console.log(this.token)
-    var header_object = new HttpHeaders().set('Authorization',this.token);
-    return this.http.get(this.baseurl+"get_class",{headers:header_object})
-  }
-  delete_class(form:any)
+  delete_lecture(form:any)
   {      
     var header_object = new HttpHeaders().set('Authorization',this.token);
-    return this.http.post(this.baseurl+"delete_class",form,{headers:header_object})
+    return this.http.post(this.teacherurl+"delete_lecture",form,{headers:header_object})
   }
 
 }

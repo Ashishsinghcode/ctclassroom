@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { CourseService } from 'src/app/shared/course/course.service';
@@ -12,7 +12,7 @@ import { SemesterService } from 'src/app/shared/semester/semester.service';
   styleUrls: ['./add-semester.component.css']
 })
 export class AddSemesterComponent implements OnInit {
-  addSemester= new FormControl({
+  addSemester= new FormGroup({
     semester_id:new FormControl(),
     semester_name:new FormControl(),
     course_id:new FormControl(),

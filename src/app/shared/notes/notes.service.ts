@@ -6,26 +6,26 @@ import { AuthService } from '../auth/auth.service';
   providedIn: 'root'
 })
 export class NotesService {
-baseurl:any
+teacherurl:any
 token:any
-  constructor(private http: HttpClient,@Inject('baseurl') _baseurl:any,private authservice :AuthService ) { 
-    this.baseurl = _baseurl
+  constructor(private http: HttpClient,@Inject('teacherurl') _teacherurl:any,private authservice :AuthService ) { 
+    this.teacherurl = _teacherurl
     this.token = this.authservice.getToken()
   }
   add_notes(form:any){
-    // console.log(this.token)
+    
     var header_object = new HttpHeaders().set('Authorization',this.token);
-    return this.http.post(this.baseurl+"add_notes",form,{headers:header_object})
+    return this.http.post(this.teacherurl+"add_notes",form,{headers:header_object})
   }
   get_notes(){
     // console.log(this.token)
     var header_object = new HttpHeaders().set('Authorization',this.token);
-    return this.http.get(this.baseurl+"get_notes",{headers:header_object})
+    return this.http.get(this.teacherurl+"get_notes",{headers:header_object})
   }
   delete_notes(form:any)
   {      
     var header_object = new HttpHeaders().set('Authorization',this.token);
-    return this.http.post(this.baseurl+"delete_notes",form,{headers:header_object})
+    return this.http.post(this.teacherurl+"delete_notes",form,{headers:header_object})
   }
 
 }

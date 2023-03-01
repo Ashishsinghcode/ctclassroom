@@ -1,3 +1,7 @@
 textarea {
-    height: 350px;
+    height: 150px;
+    text-transform: uppercase;
+}
+input{
+    text-transform: uppercase;
 }

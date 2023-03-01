@@ -7,26 +7,26 @@ import { AuthService } from '../auth/auth.service';
 })
 export class AssignmentService {
 
-  baseurl:any
+  teacherurl:any
   token:any
-    constructor(private http: HttpClient,@Inject('baseurl') _baseurl:any,private authservice :AuthService ) { 
-      this.baseurl = _baseurl
+    constructor(private http: HttpClient,@Inject('teacherurl') _teacherurl:any,private authservice :AuthService ) { 
+      this.teacherurl = _teacherurl
       this.token = this.authservice.getToken()
     }
     add_assignment(form:any){
       // console.log(this.token)
       var header_object = new HttpHeaders().set('Authorization',this.token);
-      return this.http.post(this.baseurl+"add_assignment",form,{headers:header_object})
+      return this.http.post(this.teacherurl+"add_assignment",form,{headers:header_object})
     }
     get_assignment(){
       // console.log(this.token)
       var header_object = new HttpHeaders().set('Authorization',this.token);
-      return this.http.get(this.baseurl+"get_assignment",{headers:header_object})
+      return this.http.get(this.teacherurl+"get_assignment",{headers:header_object})
     }
     delete_assignment(form:any)
     {      
       var header_object = new HttpHeaders().set('Authorization',this.token);
-      return this.http.post(this.baseurl+"delete_assignment",form,{headers:header_object})
+      return this.http.post(this.teacherurl+"delete_assignment",form,{headers:header_object})
     }
   
 }

@@ -34,7 +34,7 @@ add_notice(){
     data.append('title',this.addNotice.value.title)
     data.append('description',this.addNotice.value.description)
     data.append('notice',this.photoname)
-    
+    console.log(data)
     this.noticeservice.add_notice(data).subscribe({
       next:(result:any)=>{
         this.spinner.hide()

@@ -36,17 +36,13 @@
                         <input class="form-control border-warning" type="text" placeholder="Contact" #stucontact name="stucontact" formControlName="contact" required>
                         
                         <label class="mt-3"><b>Status</b></label>                        
-                        <ng-select formControlName="is_blocked">
+                        <ng-select class="border rounded border-warning" formControlName="is_blocked">
                             <ng-option value="Blocked">Block</ng-option>
                             <ng-option value="Unblocked">Unblock</ng-option>
                         </ng-select>
                         
-                        <div class="row mt-3">
-                            <div class="col-md-6">
-                                <button type="submit" (click)="update_student()"  class="form-control bg-warning text-light"><strong>Add</strong></button>
-                            </div>
-                           
-                        </div>
+                        <button type="submit" (click)="update_student()"  class="form-control bg-primary border-warning text-light mt-3"><strong>Update</strong></button>
+                            
                     </div>
                     <div class="col-md-1"></div>
                     <div class="col-md-6 right-banner-2 text-end position-relative mt-md-0">
