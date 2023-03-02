@@ -1,1 +1,36 @@
-<p>m-classes works!</p>
+<ngx-spinner type="ball-scale-multiple"></ngx-spinner>
+<main>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4 text-center mb-4">Manage Lecture</h1>
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover text table-striped">
+                        <tr class="">
+                            <th>#</th>
+                            <th>Class Title</th>
+                            <th>Teacher</th>
+                            <th>Subject</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Link</th>
+                            <th>Action</th>
+                        </tr>
+                        <tr class="" *ngFor="let lecture of lecturedata;let i=index">
+                            <td>{{ i+1 }}</td>
+                            <td>{{ lecture['title'] }}</td>
+                            <td>{{ lecture['teacher_name'] }}</td>
+                            <td>{{ lecture['subject_id']['subject_name'] }}</td>
+                            <td>{{ lecture['date'] }}</td>
+                            <td>{{ lecture['time'] }}</td>
+                            <td><a href="{{ lecture['link']}}" target="_blank">JOIN</a> </td>
+                            <td><span (click)="delete_class(lecture['_id'])" class="  fa fa-trash "></span></td>
+                        </tr>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>

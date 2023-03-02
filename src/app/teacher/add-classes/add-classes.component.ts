@@ -20,7 +20,8 @@ export class AddClassesComponent implements OnInit {
     title:new FormControl(),
     link:new FormControl(),
     date:new FormControl(),
-    time:new FormControl()
+    time:new FormControl(),
+    teacher_name:new FormControl()
   })
   
     subjectdata:any
@@ -31,7 +32,7 @@ export class AddClassesComponent implements OnInit {
       this.get_subject() 
       this.name = localStorage.getItem('name')
       
-      
+         
     }
     get_subject(){
       this.spinner.show()
@@ -52,7 +53,7 @@ export class AddClassesComponent implements OnInit {
     }
    
     add_lecture(){
-      
+      this.addClass.patchValue({'teacher_name':this.name})
       this.spinner.show()
       this.classservice.add_lecture(this.addClass.value).subscribe(
         (res:any)=>{
