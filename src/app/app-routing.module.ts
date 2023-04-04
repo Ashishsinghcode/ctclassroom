@@ -142,7 +142,7 @@ const routes: Routes = [
         path:'add_class',component:AddClassesComponent
       },
       {
-        path:'add_tests',component:AddTestsComponent
+        path:'add_test',component:AddTestsComponent
       },
       {
         path:'add_videos',component:AddVideosComponent
@@ -163,7 +163,7 @@ const routes: Routes = [
         path:'m_class',component:MClassesComponent
       },
       {
-        path:'m_tests',component:MTestsComponent
+        path:'m_test',component:MTestsComponent
       },
       {
         path:'m_videos',component:MVideosComponent
