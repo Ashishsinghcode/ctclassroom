@@ -1,13 +1,14 @@
 <ngx-spinner type="ball-scale-multiple"></ngx-spinner>
 <main>
     <div class="container-fluid px-4">
-        <h1 class="mt-4 text-center mb-4">Manage Department</h1>
+        <h1 class="mt-4 text-center mb-4">Manage Notes</h1>
         <div class="card mb-4">
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-hover text table-striped">
                         <tr class="">
                             <th>#</th>
+                            <th>Class</th>
                             <th>Notes Title</th>
                             <th>Notes Description</th>
                             <th>File</th>
@@ -15,6 +16,7 @@
                         </tr>
                         <tr class="" *ngFor="let notes of notesdata;let i=index">
                             <td>{{ i+1 }}</td>
+                            <td>{{ notes['semester_name'] }}</td>
                             <td>{{ notes['title'] }}</td>
                             <td>{{ notes['description'] }}</td>
                             <td><a  [href]="getfileurl(notes['notes'])" target="_blank" ><span class="fa fa-eye"></span></a></td>
