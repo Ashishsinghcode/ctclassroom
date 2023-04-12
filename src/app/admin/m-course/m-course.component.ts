@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { CourseService } from 'src/app/shared/course/course.service';
 import Swal from 'sweetalert2';
@@ -9,7 +10,9 @@ import Swal from 'sweetalert2';
   styleUrls: ['./m-course.component.css']
 })
 export class MCourseComponent implements OnInit {
-
+  deleteCourse = new FormGroup({
+    _id : new FormControl()
+    })
   constructor(private spinner : NgxSpinnerService, private courseservice :CourseService) { }
 
   ngOnInit(): void {
@@ -26,7 +29,7 @@ export class MCourseComponent implements OnInit {
       next:(res:any)=>{
         this.spinner.hide()
         this.coursedata = res.data
-        console.log(this.coursedata)
+        // console.log(this.coursedata)
       
 
       },
@@ -39,24 +42,25 @@ export class MCourseComponent implements OnInit {
     })
   }
 
-  delete_course(_id:any){
-    
+  delete_course(form:any){
+    this.deleteCourse.patchValue({'_id':form}) 
+    // console.log(this.deleteCourse.value)
     Swal.fire({
       title: 'Are you sure?',
-      text: "You won't be able to revert this!",
+      text: "You can be able to revert this!",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
+      confirmButtonText: 'Yes, Block it!'
     })
     .then((result) => {
       if (result.isConfirmed) {
-        this.courseservice.delete_course(_id).subscribe({
+        this.courseservice.delete_course(this.deleteCourse.value).subscribe({
           next:(result:any)=>{
             Swal.fire(
-              'Deleted!',
-              'Your file has been deleted.',
+              'Blocked!',
+              'Your file has been Blocked.',
               'success'
             )
             this.get_course()
@@ -64,7 +68,7 @@ export class MCourseComponent implements OnInit {
           error:(err:any)=>{
             Swal.fire(
               'Try Again!',
-              'Your file has not been deleted.',
+              'Your file has not been Blocked.',
               'error'
             )
           }

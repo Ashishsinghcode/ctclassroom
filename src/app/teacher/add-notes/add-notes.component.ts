@@ -18,7 +18,8 @@ export class AddNotesComponent implements OnInit {
     notes:new FormControl(),
     semester_id: new FormControl()
   })
-semesterdata:any
+  dataafter:any
+  semesterdata:any
   constructor(private spinner : NgxSpinnerService, private toastr : ToastrService, private notesservice : NotesService, private semesterservice : SemesterService) { }
 
   ngOnInit(): void {
@@ -61,14 +62,19 @@ add_notes(){
       
     })
   }
-get_semester(){
-  this.spinner.show()
-  this.semesterservice.get_semester().subscribe({
-    next:(res:any)=>{
-      this.spinner.hide()
-      // console.log(res)
-      this.semesterdata = res.data
-     
+  filter_data(val:any){
+    if(val['is_blocked'] == 'Unblocked'){
+      return val
+    }
+  }
+  get_semester(){
+    this.spinner.show()
+    this.semesterservice.get_semester().subscribe({
+      next:(res:any)=>{
+        this.spinner.hide()
+        this.dataafter=res.data.filter(this.filter_data)
+        this.semesterdata = this.dataafter
+       
     },
     error:(err:any)=>{
       this.spinner.hide()

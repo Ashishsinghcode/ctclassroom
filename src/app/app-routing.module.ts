@@ -42,16 +42,20 @@ import { AuthGuard } from './auth/auth.guard';
 import { MNoticeComponent } from './admin/m-notice/m-notice.component';
 import { EStudentComponent } from './admin/e-student/e-student.component';
 import { ETeacherComponent } from './admin/e-teacher/e-teacher.component';
-import {  MSemesterComponent } from './admin/m-semester/m-semester.component';
+import { MSemesterComponent } from './admin/m-semester/m-semester.component';
 import { MCourseComponent } from './admin/m-course/m-course.component';
 import { MDepartmentComponent } from './admin/m-department/m-department.component';
 import { MStudentComponent } from './admin/m-student/m-student.component';
 import { MTeacherComponent } from './admin/m-teacher/m-teacher.component';
 import { AddSemesterComponent } from './admin/add-semester/add-semester.component';
 import { MSubjectComponent } from './admin/m-subject/m-subject.component';
+import { DispNoticeComponent } from './admin/disp-notice/disp-notice.component';
 const routes: Routes = [
   {
     path:'',redirectTo:'layout/dashboard',pathMatch:"full"
+  },
+  {
+    path:'disp_notice',component:DispNoticeComponent
   },
   {
     path:'layout',component:LayoutComponent,
@@ -64,7 +68,9 @@ const routes: Routes = [
       },
       {
         path:'coursepage',component:CoursepageComponent
-      }
+      },
+     
+    
     ]
   },
   {
@@ -121,7 +127,7 @@ const routes: Routes = [
       {
         path:'m_teacher',component:MTeacherComponent
       },
-    ]
+    ] 
   },
   {
     path:'teacher',component:TeacherComponent,

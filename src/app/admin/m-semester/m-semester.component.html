@@ -14,6 +14,7 @@
                         <th>Semester ID</th>
                         <th>Semester Name</th>
                         <th>Action</th>
+                        <th>Status</th>
                         
                     </tr>
                     <tr class="border" *ngFor="let semester of semesterdata;let i=index">
@@ -23,6 +24,7 @@
                         <td>{{ semester['semester_id'] }}</td>
                         <td>{{ semester['semester_name'] }}</td>
                         <td><span (click)="delete_semester(semester['_id'])" class=" fa fa-trash"></span></td>
+                        <td>{{ semester['is_blocked'] }}</td>
                     </tr>
                 </table>
             </div>

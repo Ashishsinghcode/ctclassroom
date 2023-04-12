@@ -25,7 +25,7 @@ export class AddClassesComponent implements OnInit {
   })
   
     subjectdata:any
-    
+    dataafter:any
     constructor( private toastr : ToastrService, private spinner : NgxSpinnerService,private  subjectservice: SubjectService, private authservice : AuthService, private classservice : ClassService ) { }
     name:any
     ngOnInit(): void {
@@ -34,13 +34,18 @@ export class AddClassesComponent implements OnInit {
       
          
     }
+    filter_data(val:any){
+      if(val['is_blocked'] == 'Unblocked'){
+        return val
+      }
+    }
     get_subject(){
       this.spinner.show()
       this.subjectservice.get_subject().subscribe({
         next:(res:any)=>{
           this.spinner.hide()
-          
-          this.subjectdata = res.data
+          this.dataafter=res.data.filter(this.filter_data)
+          this.subjectdata = this.dataafter
         },
         error:(err:any)=>{
           this.spinner.hide()

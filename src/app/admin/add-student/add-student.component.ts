@@ -30,7 +30,7 @@ export class AddStudentComponent implements OnInit {
   coursedata:any 
   semesterdata:any 
   teacherdata:any 
-
+  dataafter:any
   ngOnInit(): void {
     this.get_department()
     this.get_course()
@@ -58,13 +58,21 @@ export class AddStudentComponent implements OnInit {
     }
   )
 }
+
+filter_data(val:any){
+  if(val['is_blocked'] == 'Unblocked'){
+    return val
+  }
+}
 get_department(){
   this.spinner.show()
   this.departmentservice.get_department().subscribe({
     next:(res:any)=>{
       this.spinner.hide()
        //console.log(res.data)
-      this.departmentdata = res.data
+       this.dataafter=res.data.filter(this.filter_data)
+       this.departmentdata = this.dataafter
+      
       
     },
     error:(err:any)=>{
@@ -82,7 +90,9 @@ get_course(){
     next:(res:any)=>{
       this.spinner.hide()
       // console.log(res)
-      this.coursedata = res.data
+      this.dataafter=res.data.filter(this.filter_data)
+      this.coursedata = this.dataafter
+      
     },
     error:(err:any)=>{
       this.spinner.hide()
@@ -99,7 +109,9 @@ get_semester(){
     next:(res:any)=>{
       this.spinner.hide()
       // console.log(res)
-      this.semesterdata = res.data
+      this.dataafter=res.data.filter(this.filter_data)
+      this.semesterdata = this.dataafter
+      
     },
     error:(err:any)=>{
       this.spinner.hide()
@@ -110,4 +122,6 @@ get_semester(){
     }
   })
 }
+
+
 }

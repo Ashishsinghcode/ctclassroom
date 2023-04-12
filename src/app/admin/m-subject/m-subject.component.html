@@ -16,6 +16,7 @@
                         <th>Subject Id</th>
                         <th>Subject Name</th>
                         <th>Action</th>
+                        <th>Status</th>
                         
                     </tr>
                     <tr class="" *ngFor="let subject of subjectdata;let i=index">
@@ -27,6 +28,7 @@
                         <td>{{ subject['subject_id'] }}</td>
                         <td>{{ subject['subject_name'] }}</td>
                         <td><span (click)="delete_subject(subject['_id'])" class=" fa fa-trash"></span></td>
+                        <td>{{ subject['is_blocked'] }}</td>
                     </tr>
                 </table>
              

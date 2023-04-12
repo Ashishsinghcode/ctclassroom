@@ -13,6 +13,7 @@
                         <th>Course ID</th>
                         <th>Course Name</th>
                         <th>Action</th>
+                        <th>Status</th>
                         
                     </tr>
                     <tr class="border" *ngFor="let course of coursedata;let i=index"> 
@@ -21,6 +22,7 @@
                         <td>{{ course['course_id'] }}</td>
                         <td>{{ course['course_name'] }}</td>
                         <td><span (click)="delete_course(course['_id'])" class="  fa fa-trash"></span></td>
+                        <td>{{ course['is_blocked'] }}</td>
                     </tr>
                 </table>
             </div>

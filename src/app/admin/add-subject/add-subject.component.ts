@@ -30,7 +30,7 @@ export class AddSubjectComponent implements OnInit {
   coursedata:any 
   semesterdata:any 
   teacherdata:any 
-
+  dataafter:any
   ngOnInit(): void {
     this.get_department()
     this.get_course()
@@ -60,14 +60,20 @@ export class AddSubjectComponent implements OnInit {
     }
     )
   }
+  filter_data(val:any){
+    if(val['is_blocked'] == 'Unblocked'){
+      return val
+    }
+  }
   get_department(){
     this.spinner.show()
     this.departmentservice.get_department().subscribe({
       next:(res:any)=>{
         this.spinner.hide()
          //console.log(res.data)
-        this.departmentdata = res.data
-        console.log(this.departmentdata)
+         this.dataafter=res.data.filter(this.filter_data)
+         this.departmentdata = this.dataafter
+        
       },
       error:(err:any)=>{
         this.spinner.hide()
@@ -83,8 +89,8 @@ export class AddSubjectComponent implements OnInit {
     this.courseservice.get_course().subscribe({
       next:(res:any)=>{
         this.spinner.hide()
-        // console.log(res)
-        this.coursedata = res.data
+        this.dataafter=res.data.filter(this.filter_data)
+        this.coursedata = this.dataafter
       },
       error:(err:any)=>{
         this.spinner.hide()
@@ -100,8 +106,8 @@ export class AddSubjectComponent implements OnInit {
     this.semesterservice.get_semester().subscribe({
       next:(res:any)=>{
         this.spinner.hide()
-        // console.log(res)
-        this.semesterdata = res.data
+        this.dataafter=res.data.filter(this.filter_data)
+        this.semesterdata = this.dataafter
       },
       error:(err:any)=>{
         this.spinner.hide()
@@ -117,8 +123,9 @@ export class AddSubjectComponent implements OnInit {
     this.teacherservice.get_teacher().subscribe({
       next:(res:any)=>{
         this.spinner.hide()
-        // console.log(res)
-        this.teacherdata = res.data
+        console.log(res.data)
+        this.dataafter=res.data.filter(this.filter_data)
+        this.teacherdata = this.dataafter
       },
       error:(err:any)=>{
         this.spinner.hide()

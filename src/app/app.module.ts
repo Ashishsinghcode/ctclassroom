@@ -65,6 +65,7 @@ import { MSubjectComponent } from './admin/m-subject/m-subject.component';
 import { MTeacherComponent } from './admin/m-teacher/m-teacher.component';
 import { MSemesterComponent } from './admin/m-semester/m-semester.component';
 import { AddSemesterComponent } from './admin/add-semester/add-semester.component';
+import { DispNoticeComponent } from './admin/disp-notice/disp-notice.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -123,7 +124,8 @@ import { AddSemesterComponent } from './admin/add-semester/add-semester.componen
     MSubjectComponent,
     MTeacherComponent,
     MSemesterComponent,
-    AddSemesterComponent
+    AddSemesterComponent,
+    DispNoticeComponent
    
   
   ],

@@ -7,26 +7,26 @@ import { AuthService } from '../auth/auth.service';
 })
 export class VideosService {
 
-  baseurl:any
+  teacherurl:any
   token:any
-    constructor(private http: HttpClient,@Inject('baseurl') _baseurl:any,private authservice :AuthService ) { 
-      this.baseurl = _baseurl
+    constructor(private http: HttpClient,@Inject('teacherurl') _teacherurl:any,private authservice :AuthService ) { 
+      this.teacherurl =_teacherurl
       this.token = this.authservice.getToken()
     }
-    add_videos(form:any){
+    add_video(form:any){
       // console.log(this.token)
       var header_object = new HttpHeaders().set('Authorization',this.token);
-      return this.http.post(this.baseurl+"add_videos",form,{headers:header_object})
+      return this.http.post(this.teacherurl+"add_video",form,{headers:header_object})
     }
-    get_videos(){
+    get_video(){
       // console.log(this.token)
       var header_object = new HttpHeaders().set('Authorization',this.token);
-      return this.http.get(this.baseurl+"get_videos",{headers:header_object})
+      return this.http.get(this.teacherurl+"get_video",{headers:header_object})
     }
-    delete_videos(form:any)
+    delete_video(form:any)
     {      
       var header_object = new HttpHeaders().set('Authorization',this.token);
-      return this.http.post(this.baseurl+"delete_videos",form,{headers:header_object})
+      return this.http.post(this.teacherurl+"delete_video",form,{headers:header_object})
     }
   
 }

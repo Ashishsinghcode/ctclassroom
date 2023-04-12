@@ -20,6 +20,7 @@ export class AddAssignmentsComponent implements OnInit {
     submission_date: new FormControl()
   })
 semesterdata:any
+dataafter:any
   constructor(private spinner : NgxSpinnerService, private toastr : ToastrService, private assignmentservice : AssignmentService, private semesterservice : SemesterService) { }
 
   ngOnInit(): void {
@@ -64,14 +65,18 @@ console.log(this.addAssignment.value)
       
     })
   }
+  filter_data(val:any){
+    if(val['is_blocked'] == 'Unblocked'){
+      return val
+    }
+  }
 get_semester(){
   this.spinner.show()
   this.semesterservice.get_semester().subscribe({
     next:(res:any)=>{
       this.spinner.hide()
-      // console.log(res)
-      this.semesterdata = res.data
-     
+      this.dataafter=res.data.filter(this.filter_data)
+      this.semesterdata = this.dataafter
     },
     error:(err:any)=>{
       this.spinner.hide()

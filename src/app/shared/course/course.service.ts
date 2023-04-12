@@ -16,13 +16,13 @@ token:any
   }
   get_course(){
     
-    var header_object = new HttpHeaders().set('Authorization',"Bearer "+this.token);
+    var header_object = new HttpHeaders().set('Authorization',this.token);
     return this.http.get(this.baseurl+"get_course",{headers:header_object})
   }
   delete_course(form:any)
   {
     
-    var header_object = new HttpHeaders().set('Authorization',"Bearer "+this.token);
+    var header_object = new HttpHeaders().set('Authorization',this.token);
     return this.http.post(this.baseurl+"delete_course",form,{headers:header_object})
   }
 }

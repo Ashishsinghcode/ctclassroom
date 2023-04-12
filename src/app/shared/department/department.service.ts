@@ -18,15 +18,15 @@ token:any
   }
   get_department(){
     
-    var header_object = new HttpHeaders().set('Authorization',"Bearer "+this.token);
+    var header_object = new HttpHeaders().set('Authorization',this.token);
 
     return this.http.get(this.baseurl+"get_department",{headers:header_object})
   }
   delete_department(form:any)
   {
     
-    var header_object = new HttpHeaders().set('Authorization',"Bearer "+this.token);
+    var header_object = new HttpHeaders().set('Authorization',this.token);
     return this.http.post(this.baseurl+"delete_department",form,{headers:header_object})
   }
-
+  
 }

@@ -21,7 +21,7 @@ export class AddDepartmentComponent implements OnInit {
   ngOnInit(): void {
   }
 add_department(){
-  console.log(this.addDepartment.value)
+  //console.log(this.addDepartment.value)
   this.spinner.show()
   this.departmentservice.add_department(this.addDepartment.value).subscribe(
     (res:any)=>{

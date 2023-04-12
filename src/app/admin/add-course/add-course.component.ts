@@ -21,7 +21,9 @@ export class AddCourseComponent implements OnInit {
   constructor(private spinner : NgxSpinnerService, private toastr : ToastrService, private courseservice : CourseService,private departmentservice :DepartmentService ) { }
   
   departmentdata:any 
-
+  data:any
+  dataafter:any
+  
   ngOnInit(): void {
     this.get_department()
   }
@@ -43,13 +45,19 @@ export class AddCourseComponent implements OnInit {
     }
     )
   }
+  filter_data(val:any){
+    if(val['is_blocked'] == 'Unblocked'){
+      return val
+    }
+  }
   get_department(){
     this.spinner.show()
     this.departmentservice.get_department().subscribe({
       next:(res:any)=>{
         this.spinner.hide()
-        // console.log(res)
-        this.departmentdata = res.data
+        this.dataafter=res.data.filter(this.filter_data)
+        this.departmentdata = this.dataafter
+        // console.log(this.dataafter)
       },
       error:(err:any)=>{
         this.spinner.hide()
@@ -60,4 +68,6 @@ export class AddCourseComponent implements OnInit {
       }
     })
   }
+
+  
 }
