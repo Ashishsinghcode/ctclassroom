@@ -18,7 +18,7 @@ loginForm = new FormGroup({
   constructor(private toastr : ToastrService, private spinner : NgxSpinnerService,private authservice : AuthService, private router : Router, private userservice : UserService) { }
 
   ngOnInit(): void {
-   if(this.authservice.getService() != null){
+   if(this.authservice.getService() != null ){
     this.router.navigateByUrl('/admin/admin_dashboard')
    }
    
@@ -27,9 +27,9 @@ loginForm = new FormGroup({
     this.spinner.show()
     this.userservice.login(this.loginForm.value).subscribe(
       (res:any)=>{
+        
         this.spinner.hide()
         if(res.success == true){
-          
           this.authservice.createService(res)
           this.toastr.success('Success',res.message)
           this.router.navigateByUrl('/admin/admin_dashboard')

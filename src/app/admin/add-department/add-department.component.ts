@@ -31,6 +31,7 @@ add_department(){
         
       }else{
         this.toastr.error('Failed',res.msg)
+        
       }
       
     },

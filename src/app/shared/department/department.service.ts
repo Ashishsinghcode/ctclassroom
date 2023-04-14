@@ -14,7 +14,8 @@ token:any
    }
   //Department APIs
   add_department(form:any){
-    return this.http.post(this.baseurl +'add_department',form)
+    var header_object = new HttpHeaders().set('authorization',this.token);
+    return this.http.post(this.baseurl +'add_department',form,{headers:header_object})
   }
   get_department(){
     

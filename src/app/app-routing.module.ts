@@ -38,7 +38,7 @@ import { MVideosComponent } from './teacher/m-videos/m-videos.component';
 import { TeacherDashboardComponent } from './teacher/teacher-dashboard/teacher-dashboard.component';
 import { TeacherComponent } from './teacher/teacher.component';
 import { VAttendenceComponent } from './teacher/v-attendence/v-attendence.component';
-import { AuthGuard } from './auth/auth.guard';
+import { AuthGuard, TeacherGuard } from './auth/auth.guard';
 import { MNoticeComponent } from './admin/m-notice/m-notice.component';
 import { EStudentComponent } from './admin/e-student/e-student.component';
 import { ETeacherComponent } from './admin/e-teacher/e-teacher.component';
@@ -54,9 +54,9 @@ const routes: Routes = [
   {
     path:'',redirectTo:'layout/dashboard',pathMatch:"full"
   },
-  {
-    path:'disp_notice',component:DispNoticeComponent
-  },
+  // {
+  //   path:'disp_notice',component:DispNoticeComponent
+  // },
   {
     path:'layout',component:LayoutComponent,
     children:[
@@ -130,7 +130,7 @@ const routes: Routes = [
     ] 
   },
   {
-    path:'teacher',component:TeacherComponent,
+    path:'teacher',component:TeacherComponent,canActivate:[TeacherGuard],
     children:[
       {
         path:'teacher_dashboard',component:TeacherDashboardComponent

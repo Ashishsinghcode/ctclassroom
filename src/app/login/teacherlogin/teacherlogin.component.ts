@@ -19,13 +19,11 @@ teacherLogin = new FormGroup({
   constructor(private toastr : ToastrService, private spinner : NgxSpinnerService,private authservice : AuthService, private router : Router, private userservice : UserService) { }
 
   ngOnInit(): void {
-    if(this.authservice.getService() != null){
-      this.router.navigateByUrl('/admin/admin_dashboard')
-     }
+    
   }
   login(){
     this.spinner.show()
-    this.userservice.login(this.teacherLogin.value).subscribe(
+    this.userservice.teacherLogin(this.teacherLogin.value).subscribe(
       (res:any)=>{
         this.spinner.hide()
         if(res.success == true){
