@@ -80,7 +80,7 @@ get_semester(){
     },
     error:(err:any)=>{
       this.spinner.hide()
-      console.log(err)
+       
     },
     complete:()=>{
       this.spinner.hide()

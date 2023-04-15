@@ -15,6 +15,7 @@ export class TeacherDashboardComponent implements OnInit {
   value:any
   ngOnInit(): void {
     this.name = localStorage.getItem('name')
+    //console.log(localStorage.getItem('token'))
     //this.decode=localStorage.getItem('token')
     //this.decode=jwtDecode(this.decode)    
     //console.log(this.decode.email)

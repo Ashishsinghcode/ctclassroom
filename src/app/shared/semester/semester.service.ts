@@ -18,13 +18,13 @@ export class SemesterService {
   }
   get_semester(){
     // console.log(this.token)
-    var header_object = new HttpHeaders().set('Authorization',"Bearer "+this.token);
+    var header_object = new HttpHeaders().set('Authorization',this.token);
     return this.http.get(this.baseurl+"get_semester",{headers:header_object})
   }
   delete_semester(form:any)
   {
     
-    var header_object = new HttpHeaders().set('Authorization',"Bearer "+this.token);
+    var header_object = new HttpHeaders().set('Authorization',this.token);
     return this.http.post(this.baseurl+"delete_semester",form,{headers:header_object})
   }
 }
