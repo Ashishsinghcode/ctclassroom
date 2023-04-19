@@ -20,19 +20,19 @@ export class StudentloginComponent implements OnInit {
   
     ngOnInit(): void {
       if(this.authservice.getService() != null){
-        this.router.navigateByUrl('/admin/admin_dashboard')
+        this.router.navigateByUrl('/layout/dashboard')
        }
     }
     login(){
       this.spinner.show()
-      this.userservice.login(this.studentLogin.value).subscribe(
+      this.userservice.studentLogin(this.studentLogin.value).subscribe(
         (res:any)=>{
           this.spinner.hide()
           if(res.success == true){
             
-            this.authservice.createService(res)
+            this.authservice.createServicestudent(res)
             this.toastr.success('Success',res.message)
-            this.router.navigateByUrl('/teacher/teacher_dashboard')
+            this.router.navigateByUrl('/student/student_dashboard')
           }
           else{
             this.toastr.error('Error',res.message)

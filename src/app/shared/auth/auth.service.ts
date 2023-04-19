@@ -14,6 +14,14 @@ export class AuthService {
     localStorage.setItem("token",response.token)
     
   }
+  createServicestudent(response:any){
+    
+    localStorage.setItem("name",response.name)
+    localStorage.setItem("email",response.email)
+    localStorage.setItem("token",response.token)
+    localStorage.setItem("semester_id",response.semester_id)
+    
+  }
 
   getService(){
     return localStorage.getItem("email")

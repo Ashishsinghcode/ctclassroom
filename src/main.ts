@@ -14,6 +14,9 @@ export function baseurl(){
 export function teacherurl(){
   return "http://localhost:3000/teacher/";
 }
+export function studenturl(){
+  return "http://localhost:3000/student/";
+}
 export function fileurl(){
   return "http://localhost:3000/";
 
@@ -25,6 +28,9 @@ const provider = [
   },
   {
     provide:'teacherurl',useFactory:teacherurl,deps:[]
+  },
+  {
+    provide:'studenturl',useFactory:studenturl,deps:[]
   },
   {
     provide:'fileurl',useFactory:fileurl,deps:[]

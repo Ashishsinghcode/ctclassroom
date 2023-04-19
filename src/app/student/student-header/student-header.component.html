@@ -1,7 +1,7 @@
 <header id="site-header" class="">
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" routerLink="/layout/dashboard"><i class="fas fa-graduation-cap"></i>CT Classroom
+            <a class="navbar-brand" routerLink="/student/student_dashboard"><i class="fas fa-graduation-cap"></i>CT Classroom
             </a>
             <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false"
@@ -17,21 +17,24 @@
                         <a class="nav-link active" aria-current="page" routerLink="student_dashboard">Homepage</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" routerLink="v_notes">View_Notes</a>
+                        <a class="nav-link" routerLink="v_notes">Notes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" routerLink="v_assignment">View_Assignments</a>
+                        <a class="nav-link" routerLink="v_assignment">Assignments</a>
                     </li>
                    
                     <li class="nav-item">
-                        <a class="nav-link" routerLink="v_lecture">View_lecture</a>
+                        <a class="nav-link" routerLink="v_lecture">lecture</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" routerLink="v_test">View_Test</a>
+                        <a class="nav-link" routerLink="v_test">Test</a>
                     </li>
                     
                     <li class="nav-item">
-                        <a class="nav-link" routerLink="v_video">View_Recorded_Lecture</a>
+                        <a class="nav-link" routerLink="v_video">Recorded_Lecture</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active"  (click)="logout()">Logout</a>
                     </li>
                 </ul>
                 <!-- search-right -->

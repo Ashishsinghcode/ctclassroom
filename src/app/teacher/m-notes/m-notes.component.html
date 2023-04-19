@@ -5,7 +5,7 @@
         <div class="card mb-4">
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-hover text table-striped">
+                    <table class="table table-hover table-striped">
                         <tr class="">
                             <th>#</th>
                             <th>Class</th>
@@ -19,7 +19,7 @@
                             <td>{{ notes['semester_name'] }}</td>
                             <td>{{ notes['title'] }}</td>
                             <td>{{ notes['description'] }}</td>
-                            <td><a  [href]="getfileurl(notes['notes'])" target="_blank" ><span class="fa fa-eye"></span></a></td>
+                            <td><a  [href]="getfileurl(notes['notes'])" target="_blank" ><span class="fa fa-download"></span></a></td>
                             <td><span (click)="delete_notes(notes['_id'])" class="  fa fa-trash "></span></td>
                         </tr>
                     </table>
