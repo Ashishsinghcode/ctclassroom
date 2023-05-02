@@ -17,10 +17,19 @@
                         </div>
                     </div>
                     <div class="bottom-content">
-                        <form action="#" [formGroup]="loginForm" method="post">
-                            <input type="email" name="email" class="input-form" placeholder="Your Email" required="required" formControlName ="email"  />
-                            <input type="password" name="password" class="input-form"
+                        <form [formGroup]="loginForm">
+                            <input type="email" data-bs-toggle="tooltip" data-bs-placement="top" title="Hello" name="email" class="input-form" placeholder="Your Email" required="required" formControlName ="email" required />
+                           
+                            <!-- <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                <div *ngIf="f.email.errors">First Name is required</div>
+                            </div> -->
+                     
+                           
+                                            <input type="password" name="password" class="input-form"
                                     placeholder="Your Password" required="required" formControlName ="password" />
+
+                                    <span class="alert alert-danger" *ngIf="!loginForm.controls['password'].valid && 
+                                    loginForm.controls['password']?.touched"> Please enter a valid password</span>
                             <button type="submit" class="loginhny-btn btn" (click)="login()" >Login</button>
                            <span>Don't want to Login go to </span> <a routerLink="/layout/dashboard">Homepage</a>
                         </form>
@@ -35,4 +44,10 @@
         </div>
     </div>
 </section>
+<!-- <script>
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+  return new bootstrap.Tooltip(tooltipTriggerEl)
+})
+</script> -->
 <!-- //login-section -->

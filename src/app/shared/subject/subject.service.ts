@@ -15,7 +15,8 @@ export class SubjectService {
   }
   //Semester APIs
   add_subject(form:any){
-    return this.http.post(this.baseurl +'add_subject',form)
+    var header_object = new HttpHeaders().set('Authorization',this.token);
+    return this.http.post(this.baseurl +'add_subject',form,{headers:header_object})
   }
   get_subject(){
     // console.log(this.token)

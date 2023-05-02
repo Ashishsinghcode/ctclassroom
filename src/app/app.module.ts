@@ -50,7 +50,7 @@ import { UploadTestComponent } from './student/upload-test/upload-test.component
 import { StudentHeaderComponent } from './student/student-header/student-header.component';
 import { StudentFooterComponent } from './student/student-footer/student-footer.component';
 import { StudentDashboardComponent } from './student/student-dashboard/student-dashboard.component';
-import { CommonModule } from '@angular/common';
+import { APP_BASE_HREF, CommonModule, PathLocationStrategy } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from 'ngx-spinner';
@@ -66,6 +66,8 @@ import { MTeacherComponent } from './admin/m-teacher/m-teacher.component';
 import { MSemesterComponent } from './admin/m-semester/m-semester.component';
 import { AddSemesterComponent } from './admin/add-semester/add-semester.component';
 import { DispNoticeComponent } from './admin/disp-notice/disp-notice.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -140,10 +142,12 @@ import { DispNoticeComponent } from './admin/disp-notice/disp-notice.component';
     BrowserAnimationsModule,
     NgxSpinnerModule.forRoot(),
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    
     
   ],
-  providers: [],
+ // providers: [{provide:APP_BASE_HREF, useValue:'/my/app'}],
+  providers: [Location, {provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

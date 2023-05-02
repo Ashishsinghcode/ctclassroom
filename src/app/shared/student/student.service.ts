@@ -16,7 +16,8 @@ export class StudentService {
     }
     //Department APIs
     add_student(form:any){
-      return this.http.post(this.baseurl +'add_student',form)
+      var header_object = new HttpHeaders().set('Authorization',this.token);
+      return this.http.post(this.baseurl +'add_student',form,{headers:header_object})
     }
       get_student(){
         // console.log(this.token)

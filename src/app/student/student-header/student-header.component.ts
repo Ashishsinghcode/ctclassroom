@@ -15,10 +15,10 @@ export class StudentHeaderComponent implements OnInit {
   ngOnInit(): void {
   }
   logout(){
-    console.log(this.authservice.getToken())
+    // console.log(this.authservice.getToken())
     this.authservice.destoryService()
     this.router.navigateByUrl('/layout/dashboard')
     this.toastr.success('Success','Logout Successfully')
-    console.log(this.authservice.getToken())
+    // console.log(this.authservice.getToken())
   }
 }

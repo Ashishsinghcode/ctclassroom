@@ -14,7 +14,8 @@ export class TestService {
       this.token = this.authservice.getToken()
     }
     add_test(form:any){
-      return this.http.post(this.teacherurl +'add_test',form)
+      var header_object = new HttpHeaders().set('Authorization',this.token);
+      return this.http.post(this.teacherurl +'add_test',form,{headers:header_object})
     }
     get_test(){
       // console.log(this.token)

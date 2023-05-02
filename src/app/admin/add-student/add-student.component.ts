@@ -43,7 +43,7 @@ export class AddStudentComponent implements OnInit {
   this.spinner.show()
   this.studentservice.add_student(this.addStudent.value).subscribe(
     (res:any)=>{
-      console.log(this.addStudent.value)
+     console.log(localStorage.getItem('token'))
       if(res.success == true){
         this.toastr.success('Success',res.message)
         

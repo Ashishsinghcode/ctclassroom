@@ -14,7 +14,8 @@ export class SemesterService {
   }
   //Semester APIs
   add_semester(form:any){
-    return this.http.post(this.baseurl +'add_semester',form)
+    var header_object = new HttpHeaders().set('Authorization',this.token);
+    return this.http.post(this.baseurl +'add_semester',form,{headers:header_object})
   }
   get_semester(){
     // console.log(this.token)

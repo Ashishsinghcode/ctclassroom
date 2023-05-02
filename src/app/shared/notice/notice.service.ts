@@ -14,7 +14,7 @@ export class NoticeService {
     this.token = this.authservice.getToken()
   }
   add_notice(form:any){
-    // console.log(this.token)
+    //console.log(form)
     var header_object = new HttpHeaders().set('Authorization',this.token);
     return this.http.post(this.baseurl+"add_notice",form,{headers:header_object})
   }
@@ -28,5 +28,10 @@ export class NoticeService {
     
     var header_object = new HttpHeaders().set('Authorization',this.token);
     return this.http.post(this.baseurl+"delete_notice",form,{headers:header_object})
+  }
+  sent_mail(form:any){
+    //console.log(form)
+    var header_object = new HttpHeaders().set('Authorization',this.token);
+    return this.http.post(this.baseurl+"mailer",form,{headers:header_object})
   }
 }

@@ -11,13 +11,14 @@
                             <th>Assignment Title</th>
                             <th>Assignment Description</th>
                             <th>File</th>
+                            <th>Submit Assignment</th>
                         </tr>
                         <tr class="" *ngFor="let assignment of assignmentdata;let i=index">
                             <td>{{ i+1 }}</td>
                             <td>{{ assignment['title'] }}</td>
                             <td>{{ assignment['description'] }}</td>
                             <td><a  [href]="getfileurl(assignment['assignment'])" target="_blank" ><span class="fa fa-download"></span></a></td>
-                            
+                            <td><input type="file"></td>
                         </tr>
                     </table>
 
@@ -25,5 +26,5 @@
             </div>
         </div>
     </div>
-
+    
 </main>

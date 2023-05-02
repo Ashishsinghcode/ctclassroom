@@ -16,7 +16,8 @@ export class TeacherService {
     }
     //Department APIs
     add_teacher(form:any){
-      return this.http.post(this.baseurl +'add_teacher',form)
+      var header_object = new HttpHeaders().set('Authorization',this.token);
+      return this.http.post(this.baseurl +'add_teacher',form,{headers:header_object})
     }
       get_teacher(){
         // console.log(this.token)

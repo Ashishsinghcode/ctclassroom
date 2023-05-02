@@ -12,7 +12,8 @@ token:any
     this.token = this.authservice.getToken() }
   // Course APIs
   add_course(form:any){
-    return this.http.post(this.baseurl +'add_course',form)
+    var header_object = new HttpHeaders().set('Authorization',this.token);
+    return this.http.post(this.baseurl +'add_course',form,{headers:header_object})
   }
   get_course(){
     
