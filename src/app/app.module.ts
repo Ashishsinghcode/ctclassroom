@@ -67,6 +67,8 @@ import { MSemesterComponent } from './admin/m-semester/m-semester.component';
 import { AddSemesterComponent } from './admin/add-semester/add-semester.component';
 import { DispNoticeComponent } from './admin/disp-notice/disp-notice.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { CheckAssignmentComponent } from './teacher/check-assignment/check-assignment.component';
+import { CheckedAssignmentComponent } from './teacher/checked-assignment/checked-assignment.component';
 
 @NgModule({
   declarations: [
@@ -127,7 +129,9 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     MTeacherComponent,
     MSemesterComponent,
     AddSemesterComponent,
-    DispNoticeComponent
+    DispNoticeComponent,
+    CheckAssignmentComponent,
+    CheckedAssignmentComponent
    
   
   ],

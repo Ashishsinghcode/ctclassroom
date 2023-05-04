@@ -14,12 +14,21 @@ export class AuthService {
     localStorage.setItem("token",response.token)
     
   }
+  createServiceteacher(response:any){
+    console.log(response)
+    localStorage.setItem("name",response.name)
+    localStorage.setItem("email",response.email)
+    localStorage.setItem("token",response.token)
+    localStorage.setItem("teacher_id",response.teacher_id)
+    
+  }
   createServicestudent(response:any){
     
     localStorage.setItem("name",response.name)
     localStorage.setItem("email",response.email)
     localStorage.setItem("token",response.token)
     localStorage.setItem("semester_id",response.semester_id)
+    localStorage.setItem("student_id",response.student_id)
     
   }
 

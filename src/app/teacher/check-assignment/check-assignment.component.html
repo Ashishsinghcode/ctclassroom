@@ -1,0 +1,35 @@
+<ngx-spinner type="ball-scale-multiple"></ngx-spinner>
+<main>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4 text-center mb-4">Manage Assignment</h1>
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover text table-striped">
+                        <tr class="">
+                            <th>#</th>
+                            <th>Student name</th>
+                            <th>Email</th>
+                            <th>Class</th>
+                            <th>Title</th>
+                            <th>File</th>
+                            <th>Mark Checked</th>
+                        </tr>
+                        <tr class="" *ngFor="let assignment of submitdata;let i=index">
+                            <td>{{ i+1 }}</td>
+                            <td>{{ assignment['student_id']['student_name'] }}</td>
+                            <td>{{ assignment['student_id']['email'] }}</td>
+                            <td>{{ assignment['assignment_id']['semester_name'] }}</td>
+                            <td>{{ assignment['assignment_id']['title'] }}</td>
+                            <td><a  [href]="getfileurl(assignment['assignment'])" target="_blank" ><span class="fa fa-eye"></span></a></td>
+                            <td><span (click)="check_assignment(assignment['_id'])" class=""><img src="../../../assets/images/check-mark.png"></span></td>
+                            
+                        </tr>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>

@@ -17,10 +17,12 @@ export class AddAssignmentsComponent implements OnInit {
     assignment:new FormControl(),
     semester_id: new FormControl(),
     assign_date: new FormControl(),
-    submission_date: new FormControl()
+    submission_date: new FormControl(),
+    teacher_id:new FormControl()
   })
 semesterdata:any
 dataafter:any
+teacher_id:any
   constructor(private spinner : NgxSpinnerService, private toastr : ToastrService, private assignmentservice : AssignmentService, private semesterservice : SemesterService) { }
 
   ngOnInit(): void {
@@ -30,6 +32,7 @@ dataafter:any
   photo(event:any){
     // console.log(event.target.files)
     this.photoname = event.target.files[0]
+    this.teacher_id=localStorage.getItem('teacher_id')
     // this.addNotice.patchValue({'notice':event.target.files[0]})
   }
 add_assignment(){
@@ -42,6 +45,7 @@ console.log(this.addAssignment.value)
     data.append('semester_id',this.addAssignment.value.semester_id)
     data.append('assign_date',this.addAssignment.value.assign_date)
     data.append('submission_date',this.addAssignment.value.submission_date)
+    data.append('teacher_id',this.teacher_id)
     
     
     this.assignmentservice.add_assignment(data).subscribe({

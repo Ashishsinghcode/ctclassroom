@@ -1,1 +1,35 @@
-<p>upload-assignment works!</p>
+<ngx-spinner type="ball-scale-multiple"></ngx-spinner>
+<main>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4 text-center mb-4">Pending Assignment</h1>
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <form>
+                        <table class="table table-hover text table-striped">
+                            <tr class="">
+                                <th>#</th>
+                                <th>Assignment Title</th>
+                                <th>Assignment Description</th>
+                                <th>File</th>
+                                <th>Submit Assignment</th>
+                            </tr>
+                            <tr class="" *ngFor="let assignment of assignmentdata;let i=index">
+                                <td>{{ i+1 }}</td>
+                                <td>{{ assignment['title'] }}</td>
+                                <td>{{ assignment['description'] }}</td>
+                                <td><a  [href]="getfileurl(assignment['assignment'])" target="_blank" ><span class="fa fa-download"></span></a></td>
+                                
+                              
+                               
+                            </tr>
+                        </table>
+                        
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>   
+</main>
+

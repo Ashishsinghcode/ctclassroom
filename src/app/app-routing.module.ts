@@ -51,6 +51,8 @@ import { MTeacherComponent } from './admin/m-teacher/m-teacher.component';
 import { AddSemesterComponent } from './admin/add-semester/add-semester.component';
 import { MSubjectComponent } from './admin/m-subject/m-subject.component';
 import { DispNoticeComponent } from './admin/disp-notice/disp-notice.component';
+import { CheckAssignmentComponent } from './teacher/check-assignment/check-assignment.component';
+import { CheckedAssignmentComponent } from './teacher/checked-assignment/checked-assignment.component';
 const routes: Routes = [
   {
     path:'',redirectTo:'layout/dashboard',pathMatch:"full"
@@ -159,6 +161,12 @@ const routes: Routes = [
       },
       {
         path:'m_assignment',component:MAssignmentsComponent
+      },
+      {
+        path:'check_assignment',component:CheckAssignmentComponent
+      },
+      {
+        path:'checked_assignment',component:CheckedAssignmentComponent
       },
       {
         path:'m_lecture',component:MClassesComponent

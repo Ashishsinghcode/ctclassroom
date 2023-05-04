@@ -23,13 +23,13 @@ export class StudentComponent implements OnInit {
       this.time=new Date().getTime();
       this.time=Math.round(this.time /1000)
      
-      if(this.time <= this.decode.iat+900)
+      if(this.time <= this.decode.iat+8000)
       {   
           
       }
       else{
           
-          // this.route.navigateByUrl('/layout/dashboard')
+          this.route.navigateByUrl('/layout/dashboard')
           // this.toastr.warning('Unauthorized User','Denied')
           this.toastr.warning('Session Timeout','Please Login again')
           this.authservice.destoryService()

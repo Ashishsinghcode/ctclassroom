@@ -20,7 +20,16 @@
                         <a class="nav-link" routerLink="add_notes">Notes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" routerLink="add_assignments">Assignments</a>
+                        <div class="dropdown">
+                            <a class="nav-link dropdown-toggle"  id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                              Assignment
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                              <li><a class="nav-link dropdown-item" routerLink="add_assignments">Add-Assignment</a></li>
+                              <li><a class="nav-link dropdown-item" routerLink="check_assignment">Check-Assignment</a></li>
+                              <li><a class="nav-link dropdown-item" routerLink="checked_assignment">Checked-Assignment</a></li>
+                            </ul>
+                          </div>
                     </li>
                    
                     <li class="nav-item">

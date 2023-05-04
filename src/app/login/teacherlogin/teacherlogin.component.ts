@@ -28,7 +28,7 @@ teacherLogin = new FormGroup({
         this.spinner.hide()
         if(res.success == true){
           
-          this.authservice.createService(res)
+          this.authservice.createServiceteacher(res)
           this.toastr.success('Success',res.message)
           this.router.navigateByUrl('/teacher/teacher_dashboard')
         }
