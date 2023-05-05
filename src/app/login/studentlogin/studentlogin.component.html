@@ -1,5 +1,24 @@
 <!-- /login-section -->
-
+ <!-- Modal -->
+ <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="" method="post" [formGroup]="OtpVerify" autocomplete="off">
+            <input type="text" name="" id="" formControlName==otp>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Resend Otp</button>
+          <button type="button" class="btn btn-primary" (click)="otp_verify()">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
 <section class="w3l-forms-23">
     <div class="forms23-block-hny">
         <div class="wrapper">
@@ -23,7 +42,7 @@
                                     required="required" formControlName="email" />
                             <input type="password" name="password" class="input-form"
                                     placeholder="Your Password" required="required" formControlName="password"/>
-                            <button type="submit" class="loginhny-btn btn" (click)="login()">Login</button>
+                            <button type="submit" class="loginhny-btn btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop"    (click)="send_otp()">Login</button>
                            <span>Don't want to Login go to </span> <a routerLink="/layout/dashboard">Homepage</a>
                         </form>
                         

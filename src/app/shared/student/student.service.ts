@@ -26,9 +26,14 @@ export class StudentService {
       }
       get_single_student(form:any)
       {
-        
         var header_object = new HttpHeaders().set('Authorization',this.token);
         return this.http.post(this.baseurl+"get_single_student",form,{headers:header_object})
+      }
+      get_student_by_email(form:any)
+      {
+        console.log(form)
+       
+        return this.http.post(this.baseurl+"get_student_by_email",form)
       }
       update_student(form:any){        
         var header_object = new HttpHeaders().set('Authorization',this.token);

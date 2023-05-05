@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
+import { NoticeService } from 'src/app/shared/notice/notice.service';
 import { TeacherService } from 'src/app/shared/teacher/teacher.service';
 
 @Component({
@@ -19,7 +20,7 @@ export class AddTeacherComponent implements OnInit {
     password:new FormControl()
   })
 
-  constructor(private teacherservice : TeacherService, private toastr : ToastrService, private spinner : NgxSpinnerService) { }
+  constructor(private teacherservice : TeacherService, private toastr : ToastrService, private spinner : NgxSpinnerService, private mailservice : NoticeService) { }
 
   ngOnInit(): void {
   }
@@ -29,6 +30,7 @@ export class AddTeacherComponent implements OnInit {
     (res:any)=>{
       if(res.success == true){
         this.toastr.success('Success',res.message)
+        this.send_mail()
         
       }else{
         this.toastr.error('Failed',res.message)
@@ -40,5 +42,33 @@ export class AddTeacherComponent implements OnInit {
       this.spinner.hide()
     }
   )
+}
+send_mail(){
+
+      const mail_data = new FormData()
+      mail_data.append('title',"You are enrolled with CT Group of Institutuons")
+      mail_data.append('description',"Your Login Credential is :"+"  "+" Username =>"+this.addTeacher.value.email+"   "+"Password :"+this.addTeacher.value.password)
+      mail_data.append('email',this.addTeacher.value.email)
+      //console.log(this.addTeacher.value)
+      this.mailservice.sent_mail(mail_data).subscribe({
+        next:(result:any)=>{
+          if(result.success)
+          {
+            this.toastr.success("Success",result.message)
+          }
+          else{
+            this.toastr.error("Try again",result.message)
+          }
+        },
+        error:(err:any)=>{
+          this.spinner.hide()
+          
+          this.toastr.error("server error",err)
+        },
+        
+      })
+    
+   
+  
 }
 }

@@ -43,6 +43,7 @@ add_notice(){
         if(result.success)
         {
           this.toastr.success("Success",result.message)
+          this.send_mail()
         }
         else{
           this.toastr.error("Try again",result.message)

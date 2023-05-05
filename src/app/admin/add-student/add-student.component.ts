@@ -4,6 +4,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { CourseService } from 'src/app/shared/course/course.service';
 import { DepartmentService } from 'src/app/shared/department/department.service';
+import { NoticeService } from 'src/app/shared/notice/notice.service';
 import { SemesterService } from 'src/app/shared/semester/semester.service';
 import { StudentService } from 'src/app/shared/student/student.service';
 
@@ -24,7 +25,7 @@ export class AddStudentComponent implements OnInit {
     contact:new FormControl()
   })
   
-  constructor(private studentservice : StudentService, private toastr : ToastrService, private spinner : NgxSpinnerService,private courseservice : CourseService, private departmentservice : DepartmentService, private semesterservice: SemesterService) { }
+  constructor(private studentservice : StudentService, private toastr : ToastrService, private spinner : NgxSpinnerService,private courseservice : CourseService, private departmentservice : DepartmentService, private semesterservice: SemesterService,private mailservice : NoticeService) { }
 
   departmentdata:any
   coursedata:any 
@@ -46,6 +47,7 @@ export class AddStudentComponent implements OnInit {
      console.log(localStorage.getItem('token'))
       if(res.success == true){
         this.toastr.success('Success',res.message)
+        this.send_mail()
         
       }else{
         this.toastr.error('Failed',res.message)
@@ -122,6 +124,33 @@ get_semester(){
     }
   })
 }
+send_mail(){
 
+  const mail_data = new FormData()
+  mail_data.append('title',"You are enrolled with CT Group of Institutuons")
+  mail_data.append('description',"Your LMS Login Credential is :"+"  "+" Username =>"+this.addStudent.value.email+"   "+"Password :"+this.addStudent.value.password)
+  mail_data.append('email',this.addStudent.value.email)
+  //console.log(this.addTeacher.value)
+  this.mailservice.sent_mail(mail_data).subscribe({
+    next:(result:any)=>{
+      if(result.success)
+      {
+        this.toastr.success("Success",result.message)
+      }
+      else{
+        this.toastr.error("Try again",result.message)
+      }
+    },
+    error:(err:any)=>{
+      this.spinner.hide()
+      
+      this.toastr.error("server error",err)
+    },
+    
+  })
+
+
+
+}
 
 }
