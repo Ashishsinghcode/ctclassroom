@@ -20,16 +20,20 @@ export class StudentloginComponent implements OnInit {
     number:new FormControl()
   })
   OtpVerify =new FormGroup({
-    otp:new FormControl()
+    otp:new FormControl(),
+    number:new FormControl()
   })
     constructor(private toastr : ToastrService, private spinner : NgxSpinnerService,private authservice : AuthService, private router : Router, private userservice : UserService, private otpservice : OtpService, private studentservice :StudentService) { }
   
-    number:any
-
+  number:any
+  msg:any
     ngOnInit(): void {
-      // if(this.authservice.getService() != null){
-      //   this.router.navigateByUrl('/layout/dashboard')
-      //  }
+     
+    }
+    toggle() {
+
+      this.msg = this.msg;
+  
     }
     login(){
       this.spinner.show()
@@ -56,28 +60,40 @@ export class StudentloginComponent implements OnInit {
       this.spinner.show()
       this.studentservice.get_student_by_email(this.studentLogin.value).subscribe(
         (res:any)=>{
-
-          this.studentLogin.patchValue({'number':res.data.contact})
-          this.otpservice.sent_otp(this.studentLogin.value).subscribe(
-            (res:any)=>{
-              this.spinner.hide()
-              if(res.success == true){
-                this.toastr.success("Success",res.msg)
+          if(res.success == true){
+            this.msg=res.success
+            this.studentLogin.patchValue({'number':res.data.contact})
+            this.otpservice.sent_otp(this.studentLogin.value).subscribe(
+              (res:any)=>{
+                this.spinner.hide()
+                if(res.success == true){
+                  this.toastr.success("Success",res.msg)
+                }
+              },
+              err=>{
+                this.spinner.hide()
               }
-            },
-            err=>{
+              )
+              
+            }else{
               this.spinner.hide()
-            }
-          )
+              this.toastr.error("Failed",res.msg)
+              this.msg=res.success
+
+          }
+
         }
       )
     }
 
     otp_verify(){
-      this.spinner.hide()
+      this.OtpVerify.patchValue({'number':this.studentLogin.value.number})
+      this.spinner.show()
       this.otpservice.verify_otp(this.OtpVerify.value).subscribe(
         (res:any)=>{
+          this.spinner.hide()
               if(res.success == true){
+                
                 this.login()
               }else{
                 this.toastr.error("Error",res.msg)

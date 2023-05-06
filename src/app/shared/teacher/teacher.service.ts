@@ -30,6 +30,10 @@ export class TeacherService {
         var header_object = new HttpHeaders().set('Authorization',this.token);
         return this.http.post(this.baseurl+"get_single_teacher",form,{headers:header_object})
       }
+      get_teacher_by_email(form:any)
+      {
+        return this.http.post(this.baseurl+"get_teacher_by_email",form)
+      }
       update_teacher(form:any){        
         var header_object = new HttpHeaders().set('Authorization',this.token);
         return this.http.post(this.baseurl+"update_teacher",form,{headers:header_object})

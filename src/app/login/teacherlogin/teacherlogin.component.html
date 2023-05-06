@@ -1,5 +1,28 @@
 <!-- /login-section -->
-
+<ngx-spinner type="ball-scale-multiple"></ngx-spinner>
+<!-- /login-section -->
+ <!-- Modal -->
+ <!-- <div  class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="" method="post" [formGroup]="OtpVerify" autocomplete="off">
+            <label>Enter Otp :&nbsp;</label>
+            <input type="text" name="" id="" formControlName="otp">
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="send_otp()" >Resend Otp</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="otp_verify()">Submit</button>
+         
+        </div>
+      </div>
+    </div>
+  </div> -->
 <section class="w3l-forms-23">
     <div class="forms23-block-hny">
         <div class="wrapper">
@@ -20,11 +43,28 @@
                     <div class="bottom-content">
                         <form action="#" [formGroup]="teacherLogin"  method="post">
                             <input type="email" name="email" class="input-form" placeholder="Your Email" required="required" formControlName="email" />
-                            
                             <input type="password" name="password" class="input-form"
                                     placeholder="Your Password" required="required" formControlName="password" />
+                                    <form action="" [formGroup]="OtpVerify">
+                                      <ng-container *ngIf="msg==true">
+                                        <div style="margin: 0 auto;text-align: left;">
+                                            <div class="container-fluid">
+                                              <label class="col-md-3"></label>
+                                            
+                                              <input class="input-form col-md-4" style="text-align: center;" placeholder="Enter OTP XXXXXX"  type="text" id="tbname" formControlName="otp" />
+                                              <label class="col-md-2"></label>
+                                              <button class="btn btn-warning btn-sm col-md-4"(click)="send_otp()">Resend Otp</button>&nbsp;
+                                              <button class="btn btn-primary btn-sm col-md-4" (click)="otp_verify()">Submit</button>
+                                            </div>   
+                                        </div>
+                                    </ng-container>
+                                  </form>
 
-                            <button type="submit" (click)="login()" class="loginhny-btn btn">Login</button>
+                            <button type="submit"  (click)="send_otp();toggle()" class="loginhny-btn btn"  >Login</button>
+                          
+                          <!-- <ng-template #thenblock data-bs-toggle="modal" data-bs-target="#staticBackdrop"></ng-template>
+                          <ng-template #elseblock></ng-template> -->
+
                            <span>Don't want to Login go to </span> <a routerLink="/layout/dashboard">Homepage</a>
                         </form>
                         

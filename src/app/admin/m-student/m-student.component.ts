@@ -30,9 +30,9 @@ export class MStudentComponent implements OnInit {
     this.spinner.show()
     this.departmentservice.get_department().subscribe({
       next:(res:any)=>{
-        this.spinner.hide()
-         //console.log(res.data)
+        //console.log(res.data)
         this.departmentdata = res.data
+        this.spinner.hide()
         
       },
       error:(err:any)=>{
@@ -48,9 +48,9 @@ export class MStudentComponent implements OnInit {
     this.spinner.show()
     this.courseservice.get_course().subscribe({
       next:(res:any)=>{
-        this.spinner.hide()
         // console.log(res)
         this.coursedata = res.data
+        this.spinner.hide()
       },
       error:(err:any)=>{
         this.spinner.hide()
@@ -65,9 +65,9 @@ export class MStudentComponent implements OnInit {
     this.spinner.show()
     this.semesterservice.get_semester().subscribe({
       next:(res:any)=>{
-        this.spinner.hide()
         // console.log(res)
         this.semesterdata = res.data
+        this.spinner.hide()
       },
       error:(err:any)=>{
         this.spinner.hide()
@@ -82,8 +82,8 @@ export class MStudentComponent implements OnInit {
     this.spinner.show()
     this.studentservice.get_student().subscribe({
       next:(res:any)=>{
-        this.spinner.hide()
         this.studentdata = res.data
+        this.spinner.hide()
       },
       error:(err:any)=>{
         this.spinner.hide()

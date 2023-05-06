@@ -1,7 +1,7 @@
 <ngx-spinner type="ball-scale-multiple"></ngx-spinner>
 <main>
     <div class="container-fluid px-4">
-        <h1 class="mt-4 text-center mb-4">Manage Course</h1>
+        <h1 class="mt-4 text-center mb-4">Manage Teacher</h1>
         <div class="card mb-4">
             <div class="card-body">
                
@@ -21,14 +21,27 @@
                         
                     </tr>
                     <tr class="border" *ngFor="let teacher of teacherdata;let i=index"> 
-                        <td>{{ i+1 }}</td>
-                        <td>{{ teacher['teacher_id'] }}</td>
-                        <td>{{ teacher['teacher_name'] }}</td>
-                        <td>{{ teacher['email'] }}</td>
-                        <td>{{ teacher['qualification'] }}</td>
-                        <td>{{ teacher['contact'] }}</td>
-                        <td><span [routerLink]="['/admin/e_teacher/',teacher['_id']]" class="fa fa-edit"></span></td>
-                        <td>{{ teacher['is_blocked'] }}</td>
+                        <ng-template *ngIf="teacher['is_blocked']==='Unblocked' then thenblock else elseblock"></ng-template>
+                        <ng-template #thenblock>
+                            <td>{{ i+1 }}</td>
+                            <td>{{ teacher['teacher_id'] }}</td>
+                            <td>{{ teacher['teacher_name'] }}</td>
+                            <td>{{ teacher['email'] }}</td>
+                            <td>{{ teacher['qualification'] }}</td>
+                            <td>{{ teacher['contact'] }}</td>
+                            <td><span [routerLink]="['/admin/e_teacher/',teacher['_id']]" class="fa fa-edit"></span></td>
+                            <td><i class="fa fa-unlock"></i></td>
+                        </ng-template>
+                        <ng-template #elseblock>
+                            <td>{{ i+1 }}</td>
+                            <td>{{ teacher['teacher_id'] }}</td>
+                            <td>{{ teacher['teacher_name'] }}</td>
+                            <td>{{ teacher['email'] }}</td>
+                            <td>{{ teacher['qualification'] }}</td>
+                            <td>{{ teacher['contact'] }}</td>
+                            <td><span [routerLink]="['/admin/e_teacher/',teacher['_id']]" class="fa fa-edit"></span></td>
+                            <td><i class="text-danger fa fa-lock"></i></td>
+                        </ng-template>
                         
                         
                        

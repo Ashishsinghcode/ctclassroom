@@ -14,11 +14,21 @@
                             <th>Blocked</th>
                         </tr>
                         <tr class="" *ngFor="let department of departmentdata;let i=index">
-                            <td>{{ i+1 }}</td>
-                            <td>{{ department['department_id'] }}</td>
-                            <td>{{ department['department_name'] }}</td>
-                            <td><span (click)="delete_department(department['_id'])" class="  fa fa-trash"></span></td>
-                            <td>{{ department['is_blocked'] }}</td>
+                            <ng-template *ngIf="department['is_blocked']==='Unblocked' then thenblock else elseblock"></ng-template>
+                            <ng-template #thenblock>
+                                <td>{{ i+1 }}</td>
+                                <td>{{ department['department_id'] }}</td>
+                                <td>{{ department['department_name'] }}</td>
+                                <td><span (click)="delete_department(department['_id'])" class="  fa fa-unlock"></span></td>
+                                <td>{{ department['is_blocked'] }}</td>
+                            </ng-template>
+                            <ng-template #elseblock class="text-danger">
+                                <td>{{ i+1 }}</td>
+                                <td>{{ department['department_id'] }}</td>
+                                <td>{{ department['department_name'] }}</td>
+                                <td><span (click)="delete_department(department['_id'])" class="text-danger  fa fa-lock"></span></td>
+                                <td>{{ department['is_blocked'] }}</td>
+                            </ng-template>
                         </tr>
                     </table>
 

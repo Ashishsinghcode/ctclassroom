@@ -17,12 +17,23 @@
                         
                     </tr>
                     <tr class="border" *ngFor="let course of coursedata;let i=index"> 
-                        <td>{{ i+1 }}</td>
-                        <td>{{ course['department_id']['department_name'] }}</td>
-                        <td>{{ course['course_id'] }}</td>
-                        <td>{{ course['course_name'] }}</td>
-                        <td><span (click)="delete_course(course['_id'])" class="  fa fa-trash"></span></td>
-                        <td>{{ course['is_blocked'] }}</td>
+                        <ng-template *ngIf="course['is_blocked']==='Unblocked'; then thenblock else elseblock" ></ng-template>
+                        <ng-template #thenblock>
+                            <td>{{ i+1 }}</td>
+                            <td>{{ course['department_id']['department_name'] }}</td>
+                            <td>{{ course['course_id'] }}</td>
+                            <td>{{ course['course_name'] }}</td>
+                            <td><span (click)="delete_course(course['_id'])" class="  fa fa-unlock"></span></td>
+                            <td>{{ course['is_blocked'] }}</td>
+                        </ng-template>
+                        <ng-template #elseblock>
+                            <td>{{ i+1 }}</td>
+                            <td>{{ course['department_id']['department_name'] }}</td>
+                            <td>{{ course['course_id'] }}</td>
+                            <td>{{ course['course_name'] }}</td>
+                            <td><span (click)="delete_course(course['_id'])" class="text-danger  fa fa-lock"></span></td>
+                            <td>{{ course['is_blocked'] }}</td>
+                        </ng-template>
                     </tr>
                 </table>
             </div>

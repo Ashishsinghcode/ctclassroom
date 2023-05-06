@@ -1,7 +1,7 @@
 <ngx-spinner type="ball-scale-multiple"></ngx-spinner>
 <main>
     <div class="container-fluid px-4">
-        <h1 class="mt-4 text-center mb-4">Manage Subject</h1>
+        <h1 class="mt-4 text-center mb-4">Manage Student</h1>
         <div class="card mb-4">
             <div class="card-body">
                
@@ -21,16 +21,33 @@
                         
                     </tr>
                     <tr class="" *ngFor="let student of studentdata;let i=index">
-                        <td>{{ i+1 }}</td>
-                        <td>{{ student['rollno'] }}</td>
-                        <td>{{ student['student_name'] }}</td>
-                        <td>{{ student['semester_id']['semester_name'] }}</td>
-                        <td>{{ student['course_id']['course_name'] }}</td>
-                        <td>{{ student['department_id']['department_name'] }}</td>
-                        <td>{{ student['email'] }}</td>
-                        <td>{{ student['contact'] }}</td>
-                        <td><span [routerLink]="['/admin/e_student/',student['_id']]" class="fa fa-edit"></span></td>
-                        <td>{{ student['is_blocked'] }}</td>
+                        <ng-template *ngIf="student['is_blocked']==='Unblocked' then thenblock else elseblock"></ng-template>
+                        <ng-template #thenblock>
+                            <td>{{ i+1 }}</td>
+                            <td>{{ student['rollno'] }}</td>
+                            <td>{{ student['student_name'] }}</td>
+                            <td>{{ student['semester_id']['semester_name'] }}</td>
+                            <td>{{ student['course_id']['course_name'] }}</td>
+                            <td>{{ student['department_id']['department_name'] }}</td>
+                            <td>{{ student['email'] }}</td>
+                            <td>{{ student['contact'] }}</td>
+                            <td><span [routerLink]="['/admin/e_student/',student['_id']]" class="fa fa-edit"></span></td>
+                            <td><i class="fa fa-unlock"></i></td>
+                        </ng-template>
+                        <ng-template #elseblock>
+                            <td>{{ i+1 }}</td>
+                            <td>{{ student['rollno'] }}</td>
+                            <td>{{ student['student_name'] }}</td>
+                            <td>{{ student['semester_id']['semester_name'] }}</td>
+                            <td>{{ student['course_id']['course_name'] }}</td>
+                            <td>{{ student['department_id']['department_name'] }}</td>
+                            <td>{{ student['email'] }}</td>
+                            <td>{{ student['contact'] }}</td>
+                            <td><span [routerLink]="['/admin/e_student/',student['_id']]" class="fa fa-edit"></span></td>
+                            <td><i class="text-danger fa fa-lock"></i></td>
+
+                        </ng-template>
+                      
                     </tr>
                 </table>
             </div>

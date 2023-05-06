@@ -35,8 +35,8 @@ _id : new FormControl()
     this.spinner.show()
     this.subjectservice.get_subject().subscribe({
       next:(res:any)=>{
-        this.spinner.hide()
         this.subjectdata = res.data
+        this.spinner.hide()
        
       },
       error:(err:any)=>{
@@ -51,8 +51,8 @@ _id : new FormControl()
     this.spinner.show()
     this.semesterservice.get_semester().subscribe({
       next:(res:any)=>{
-        this.spinner.hide()
         this.semesterdata = res.data
+        this.spinner.hide()
         //console.log(this.semesterdata)
       },
       error:(err:any)=>{
@@ -104,8 +104,8 @@ _id : new FormControl()
         this.spinner.show()
         this.courseservice.get_course().subscribe({
           next:(res:any)=>{
-            this.spinner.hide()
             this.coursedata = res.data
+            this.spinner.hide()
             
           },
           error:(err:any)=>{
@@ -121,9 +121,9 @@ _id : new FormControl()
     this.spinner.show()
     this.departmentservice.get_department().subscribe({
       next:(res:any)=>{
-        this.spinner.hide()
         // console.log(res)
         this.departmentdata = res.data
+        this.spinner.hide()
       },
       error:(err:any)=>{
         this.spinner.hide()
@@ -138,9 +138,9 @@ _id : new FormControl()
     this.spinner.show()
     this.teacherservice.get_teacher().subscribe({
       next:(res:any)=>{
-        this.spinner.hide()
         // console.log(res)
         this.teacherdata = res.data
+        this.spinner.hide()
       },
       error:(err:any)=>{
         this.spinner.hide()

@@ -1,7 +1,7 @@
 <ngx-spinner type="ball-scale-multiple"></ngx-spinner>
 <main>
     <div class="container-fluid px-4">
-        <h1 class="mt-4 text-center mb-4">Manage Course</h1>
+        <h1 class="mt-4 text-center mb-4">Manage Semester</h1>
         <div class="card mb-4">
             <div class="card-body">
                
@@ -18,13 +18,25 @@
                         
                     </tr>
                     <tr class="border" *ngFor="let semester of semesterdata;let i=index">
-                        <td>{{ i+1 }}</td>
-                        <td>{{ semester['department_id']['department_name'] }}</td>
-                        <td>{{ semester['course_id']['course_name'] }}</td>
-                        <td>{{ semester['semester_id'] }}</td>
-                        <td>{{ semester['semester_name'] }}</td>
-                        <td><span (click)="delete_semester(semester['_id'])" class=" fa fa-trash"></span></td>
-                        <td>{{ semester['is_blocked'] }}</td>
+                        <ng-template *ngIf="semester['is_blocked']==='Unblocked' then thenblock else elseblock "></ng-template>
+                        <ng-template #thenblock>
+                            <td>{{ i+1 }}</td>
+                            <td>{{ semester['department_id']['department_name'] }}</td>
+                            <td>{{ semester['course_id']['course_name'] }}</td>
+                            <td>{{ semester['semester_id'] }}</td>
+                            <td>{{ semester['semester_name'] }}</td>
+                            <td><span (click)="delete_semester(semester['_id'])" class=" fa fa-unlock"></span></td>
+                            <td>{{ semester['is_blocked'] }}</td>
+                        </ng-template>
+                        <ng-template #elseblock >
+                            <td>{{ i+1 }}</td>
+                            <td>{{ semester['department_id']['department_name'] }}</td>
+                            <td>{{ semester['course_id']['course_name'] }}</td>
+                            <td>{{ semester['semester_id'] }}</td>
+                            <td>{{ semester['semester_name'] }}</td>
+                            <td><span (click)="delete_semester(semester['_id'])" class="text-danger fa fa-lock"></span></td>
+                            <td>{{ semester['is_blocked'] }}</td>
+                        </ng-template>
                     </tr>
                 </table>
             </div>

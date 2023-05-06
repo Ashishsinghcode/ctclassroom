@@ -47,7 +47,7 @@ send_mail(){
 
       const mail_data = new FormData()
       mail_data.append('title',"You are enrolled with CT Group of Institutuons")
-      mail_data.append('description',"Your Login Credential is :"+"  "+" Username =>"+this.addTeacher.value.email+"   "+"Password :"+this.addTeacher.value.password)
+      mail_data.append('description',"Your Login Credential is :"+" \n "+" Username :"+this.addTeacher.value.email+" \n  "+"Password :"+this.addTeacher.value.password)
       mail_data.append('email',this.addTeacher.value.email)
       //console.log(this.addTeacher.value)
       this.mailservice.sent_mail(mail_data).subscribe({

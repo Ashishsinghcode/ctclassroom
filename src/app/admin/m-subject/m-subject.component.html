@@ -20,15 +20,30 @@
                         
                     </tr>
                     <tr class="" *ngFor="let subject of subjectdata;let i=index">
-                        <td>{{ i+1 }}</td>
-                        <td>{{ subject['department_id']['department_name'] }}</td>
-                        <td>{{ subject['course_id']['course_name'] }}</td>
-                        <td>{{ subject['semester_id']['semester_name'] }}</td>
-                        <td>{{ subject['teacher_id']['teacher_name'] }}</td>
-                        <td>{{ subject['subject_id'] }}</td>
-                        <td>{{ subject['subject_name'] }}</td>
-                        <td><span (click)="delete_subject(subject['_id'])" class=" fa fa-trash"></span></td>
-                        <td>{{ subject['is_blocked'] }}</td>
+                        <ng-template *ngIf="subject['is_blocked']==='Unblocked' then thenblock else elseblock"></ng-template>
+                        <ng-template #thenblock>
+                            <td>{{ i+1 }}</td>
+                            <td>{{ subject['department_id']['department_name'] }}</td>
+                            <td>{{ subject['course_id']['course_name'] }}</td>
+                            <td>{{ subject['semester_id']['semester_name'] }}</td>
+                            <td>{{ subject['teacher_id']['teacher_name'] }}</td>
+                            <td>{{ subject['subject_id'] }}</td>
+                            <td>{{ subject['subject_name'] }}</td>
+                            <td><span (click)="delete_subject(subject['_id'])" class=" fa fa-unlock"></span></td>
+                            <td>{{ subject['is_blocked'] }}</td>
+
+                        </ng-template>
+                        <ng-template #elseblock>
+                            <td>{{ i+1 }}</td>
+                            <td>{{ subject['department_id']['department_name'] }}</td>
+                            <td>{{ subject['course_id']['course_name'] }}</td>
+                            <td>{{ subject['semester_id']['semester_name'] }}</td>
+                            <td>{{ subject['teacher_id']['teacher_name'] }}</td>
+                            <td>{{ subject['subject_id'] }}</td>
+                            <td>{{ subject['subject_name'] }}</td>
+                            <td><span (click)="delete_subject(subject['_id'])" class="text-danger fa fa-lock"></span></td>
+                            <td>{{ subject['is_blocked'] }}</td>
+                        </ng-template>
                     </tr>
                 </table>
              

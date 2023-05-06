@@ -23,9 +23,9 @@ export class MDepartmentComponent implements OnInit {
     this.spinner.show()
     this.departmentservice.get_department().subscribe({
       next:(res:any)=>{
-        this.spinner.hide()
         // console.log(res)
         this.departmentdata = res.data
+        this.spinner.hide()
       },
       error:(err:any)=>{
         this.spinner.hide()
@@ -60,8 +60,8 @@ export class MDepartmentComponent implements OnInit {
               'success'
             )
             
-            this.spinner.hide()
             this.get_department()
+            this.spinner.hide()
           },
           error:(err:any)=>{
             Swal.fire(

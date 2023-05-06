@@ -4,6 +4,8 @@ import { Router, RouterEvent } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/shared/auth/auth.service';
+import { OtpService } from 'src/app/shared/otp/otp.service';
+import { TeacherService } from 'src/app/shared/teacher/teacher.service';
 import { UserService } from 'src/app/shared/user/user.service';
 
 @Component({
@@ -14,12 +16,27 @@ import { UserService } from 'src/app/shared/user/user.service';
 export class TeacherloginComponent implements OnInit {
 teacherLogin = new FormGroup({
   email : new FormControl(),
-  password : new FormControl()
+  password : new FormControl(),
+  number:new FormControl()
 })
-  constructor(private toastr : ToastrService, private spinner : NgxSpinnerService,private authservice : AuthService, private router : Router, private userservice : UserService) { }
+OtpVerify =new FormGroup({
+  otp:new FormControl(),
+  number:new FormControl()
+})
+
+public show:boolean = false;
+
+
+msg:any
+  constructor(private toastr : ToastrService, private spinner : NgxSpinnerService,private authservice : AuthService, private router : Router, private userservice : UserService,private teacherservice : TeacherService, private otpservice: OtpService) { }
 
   ngOnInit(): void {
     
+  }
+  toggle() {
+
+    this.msg = this.msg;
+
   }
   login(){
     this.spinner.show()
@@ -41,5 +58,54 @@ teacherLogin = new FormGroup({
       }
     )
    }
+   send_otp(){
+    this.spinner.show()
+    this.teacherservice.get_teacher_by_email(this.teacherLogin.value).subscribe(
+      (res:any)=>{
+        if(res.success == true){
+          this.msg=res.success
+          this.teacherLogin.patchValue({'number':res.data.contact})
+          this.otpservice.sent_otp(this.teacherLogin.value).subscribe(
+            (res:any)=>{
+              this.spinner.hide()
+              if(res.success == true){
+                this.toastr.success("Success",res.msg)
+              }
+            },
+            err=>{
+              this.spinner.hide()
+            }
+          )
+        }  else{
+          this.spinner.hide()
+          this.toastr.error("Failed",res.msg)
+          this.msg=res.success
+
+
+
+        }        // console.log(res.data.contact.slice(6,10))
+      }
+    )
+  }
+
+  otp_verify(){
+    this.OtpVerify.patchValue({'number':this.teacherLogin.value.number})
+    this.spinner.show()
+    this.otpservice.verify_otp(this.OtpVerify.value).subscribe(
+      (res:any)=>{
+        this.spinner.hide()
+            if(res.success == true){
+              
+              this.login()
+            }else{
+              this.toastr.error("Error",res.msg)
+            }
+          },
+          err=>{
+            this.spinner.hide()
+          }
+        )
+      }
+    
   
 }

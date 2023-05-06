@@ -127,8 +127,8 @@ get_semester(){
 send_mail(){
 
   const mail_data = new FormData()
-  mail_data.append('title',"You are enrolled with CT Group of Institutuons")
-  mail_data.append('description',"Your LMS Login Credential is :"+"  "+" Username =>"+this.addStudent.value.email+"   "+"Password :"+this.addStudent.value.password)
+  mail_data.append('title',"LMS Login credential")
+  mail_data.append('description',"Dear,"+" "+this.addStudent.value.student_name+"\n\n\nYou are enrolled with CT Group of Institutuons\n\nYour LMS Login Credential is :"+"  \n "+" Username :"+this.addStudent.value.email+"  \n  "+"Password :"+this.addStudent.value.password)
   mail_data.append('email',this.addStudent.value.email)
   //console.log(this.addTeacher.value)
   this.mailservice.sent_mail(mail_data).subscribe({

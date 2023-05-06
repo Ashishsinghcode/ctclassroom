@@ -27,8 +27,8 @@ export class MCourseComponent implements OnInit {
     this.spinner.show()
     this.courseservice.get_course().subscribe({
       next:(res:any)=>{
-        this.spinner.hide()
         this.coursedata = res.data
+        this.spinner.hide()
         // console.log(this.coursedata)
       
 

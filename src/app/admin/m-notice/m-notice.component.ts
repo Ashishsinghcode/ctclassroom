@@ -35,9 +35,9 @@ export class MNoticeComponent implements OnInit {
     this.spinner.show()
     this.noticeservice.get_notice().subscribe({
       next:(res:any)=>{
-        this.spinner.hide()
         // console.log(res)
         this.noticedata = res.data
+        this.spinner.hide()
       },
       error:(err:any)=>{
         this.spinner.hide()

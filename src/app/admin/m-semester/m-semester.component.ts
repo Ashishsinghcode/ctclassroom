@@ -28,8 +28,8 @@ deleteSemester =new FormGroup({
     this.spinner.show()
     this.semesterservice.get_semester().subscribe({
       next:(res:any)=>{
-        this.spinner.hide()
         this.semesterdata = res.data
+        this.spinner.hide()
         //console.log(this.semesterdata)
       },
       error:(err:any)=>{
@@ -46,20 +46,20 @@ deleteSemester =new FormGroup({
     
     Swal.fire({
       title: 'Are you sure?',
-      text: "You won't be able to revert this!",
+      text: "",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
+      confirmButtonText: 'Yes, Block it!'
     })
     .then((result) => {
       if (result.isConfirmed) {
         this.semesterservice.delete_semester(this.deleteSemester.value).subscribe({
           next:(result:any)=>{
             Swal.fire(
-              'Deleted!',
-              'Your file has been deleted.',
+              result.message,
+              result.msg,
               'success'
               )
               this.get_semester()
