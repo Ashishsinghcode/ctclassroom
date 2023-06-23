@@ -23,6 +23,10 @@ OtpVerify =new FormGroup({
   otp:new FormControl(),
   number:new FormControl()
 })
+Otpdata =new FormGroup({
+  numbers:new FormControl(),
+  otp:new FormControl()
+})
 
 public show:boolean = false;
 
@@ -65,8 +69,14 @@ msg:any
         if(res.success == true){
           this.msg=res.success
           this.teacherLogin.patchValue({'number':res.data.contact})
-          this.otpservice.sent_otp(this.teacherLogin.value).subscribe(
+          this.otpservice.generate_otp(this.teacherLogin.value).subscribe(
+            (otpres:any)=>{
+              this.Otpdata.patchValue({'numbers':this.teacherLogin.value.number})
+              this.Otpdata.patchValue({'otp':otpres.otp})
+              //Sending otp
+          this.otpservice.sent_otp(this.Otpdata.value).subscribe(
             (res:any)=>{
+              console.log(res)
               this.spinner.hide()
               if(res.success == true){
                 this.toastr.success("Success",res.msg)
@@ -75,7 +85,9 @@ msg:any
             err=>{
               this.spinner.hide()
             }
+          )}
           )
+            
         }  else{
           this.spinner.hide()
           this.toastr.error("Failed",res.msg)

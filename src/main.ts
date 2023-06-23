@@ -21,59 +21,13 @@ export function fileurl(){
   return "http://localhost:3000/";
 
 }
+export function otpurl(){
+  return "https://www.fast2sms.com/dev/bulkV2";
+
+}
 
 const provider = [
   {
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
     provide:'baseurl',useFactory:baseurl,deps:[]
   },
   {
@@ -84,7 +38,10 @@ const provider = [
   },
   {
     provide:'fileurl',useFactory:fileurl,deps:[]
-  }
+  },
+  {
+    provide:'otpurl',useFactory:otpurl,deps:[]
+  },
 ]
 
 platformBrowserDynamic(provider).bootstrapModule(AppModule)
